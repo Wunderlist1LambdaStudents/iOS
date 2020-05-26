@@ -16,6 +16,7 @@
 		C459FAC9247DB07A005AB618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C459FAC7247DB07A005AB618 /* LaunchScreen.storyboard */; };
 		C459FAD4247DB07A005AB618 /* WunderlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAD3247DB07A005AB618 /* WunderlistTests.swift */; };
 		C459FADF247DB07A005AB618 /* WunderlistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FADE247DB07A005AB618 /* WunderlistUITests.swift */; };
+		C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAED247DCD90005AB618 /* SignUpInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C459FADA247DB07A005AB618 /* WunderlistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WunderlistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C459FADE247DB07A005AB618 /* WunderlistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderlistUITests.swift; sourceTree = "<group>"; };
 		C459FAE0247DB07A005AB618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C459FAED247DCD90005AB618 /* SignUpInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		C459FAB8247DB071005AB618 /* Wunderlist */ = {
 			isa = PBXGroup;
 			children = (
+				C459FAEF247DCE68005AB618 /* Views */,
 				C459FAEC247DB5A7005AB618 /* ViewControllers */,
 				C459FAB9247DB071005AB618 /* AppDelegate.swift */,
 				C459FABB247DB071005AB618 /* SceneDelegate.swift */,
@@ -135,8 +138,16 @@
 		C459FAEC247DB5A7005AB618 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C459FAED247DCD90005AB618 /* SignUpInViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C459FAEF247DCE68005AB618 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 				C459FABE247DB071005AB618 /* ViewController.swift in Sources */,
 				C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
+				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
