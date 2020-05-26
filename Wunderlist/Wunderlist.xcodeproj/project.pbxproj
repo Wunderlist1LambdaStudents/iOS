@@ -101,6 +101,7 @@
 		C459FAB8247DB071005AB618 /* Wunderlist */ = {
 			isa = PBXGroup;
 			children = (
+				C459FAEC247DB5A7005AB618 /* ViewControllers */,
 				C459FAB9247DB071005AB618 /* AppDelegate.swift */,
 				C459FABB247DB071005AB618 /* SceneDelegate.swift */,
 				C459FABD247DB071005AB618 /* ViewController.swift */,
@@ -129,6 +130,13 @@
 				C459FAE0247DB07A005AB618 /* Info.plist */,
 			);
 			path = WunderlistUITests;
+			sourceTree = "<group>";
+		};
+		C459FAEC247DB5A7005AB618 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
