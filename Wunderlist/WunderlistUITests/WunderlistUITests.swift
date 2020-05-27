@@ -33,8 +33,12 @@ class WunderlistUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
+
     func testFieldsExist() throws {
         app = XCUIApplication()
+
+    func testKeyboardAbleToType() throws {
+        let app = XCUIApplication()
         app.launch()
         
         let password = app.textFields["Password"]
@@ -42,6 +46,7 @@ class WunderlistUITests: XCTestCase {
         
         XCTAssertTrue(password.exists)
         XCTAssertTrue(userName.exists)
+
         
         password.tap()
         userName.tap()
@@ -76,7 +81,7 @@ class WunderlistUITests: XCTestCase {
         
         searchBar.tap()
         searchBar.typeText("Testing")
-        
+                
     }
 
     func testExample() throws {
