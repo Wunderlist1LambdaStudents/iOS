@@ -72,7 +72,10 @@ class WunderlistUITests: XCTestCase {
         
         loginButton.tap()
         
+        XCTAssertTrue(searchBar.exists)
         
+        searchBar.tap()
+        searchBar.typeText("Testing")
         
     }
 
@@ -94,3 +97,4 @@ class WunderlistUITests: XCTestCase {
         }
     }
 }
+
