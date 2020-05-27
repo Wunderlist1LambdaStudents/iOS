@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  TasksViewController.swift
 //  Wunderlist
 //
 //  Created by Bradley Diroff on 5/27/20.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class TasksViewController: UIViewController {
 
-    @IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -21,13 +21,8 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
-    }
     
-    @IBAction func addTaskTapped(_ sender: Any) {
-    }
-    
-    
+
     /*
     // MARK: - Navigation
 

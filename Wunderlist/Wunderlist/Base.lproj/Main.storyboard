@@ -217,6 +217,7 @@
                     <connections>
                         <outlet property="searchBar" destination="HD1-QB-yra" id="XMF-Kc-QWn"/>
                         <outlet property="segmentBar" destination="qkw-Sr-lZU" id="iCL-3C-u6o"/>
+                        <outlet property="tableView" destination="AlO-0t-adm" id="OuA-Uq-W46"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd1-6W-LpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,7 +247,7 @@
         <!--Tasks-->
         <scene sceneID="qfD-cX-sGI">
             <objects>
-                <viewController id="LKd-wO-p2A" sceneMemberID="viewController">
+                <viewController id="LKd-wO-p2A" customClass="TasksViewController" customModule="Wunderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="S0n-Km-vfT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -296,6 +297,11 @@
                         <viewLayoutGuide key="safeArea" id="eDj-ET-mKm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" id="Enq-BA-Pct"/>
+                    <connections>
+                        <outlet property="searchBar" destination="UCQ-VH-bfX" id="eXd-Pi-KNO"/>
+                        <outlet property="segmentedControl" destination="zx1-Ls-nHh" id="0GY-iJ-T5J"/>
+                        <outlet property="tableView" destination="eKw-Fo-rmO" id="qc2-7l-BkW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaG-KH-Hr1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,6 +309,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9QC-R3-nhQ"/>
+        <segue reference="kPy-6q-WL4"/>
     </inferredMetricsTieBreakers>
 </document>

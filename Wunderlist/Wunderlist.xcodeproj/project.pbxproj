@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5424247E9B3E00AE9802 /* HomeViewController.swift */; };
+		C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5426247EB68600AE9802 /* TasksViewController.swift */; };
 		C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAB9247DB071005AB618 /* AppDelegate.swift */; };
 		C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FABB247DB071005AB618 /* SceneDelegate.swift */; };
 		C459FABE247DB071005AB618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FABD247DB071005AB618 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		C40F5424247E9B3E00AE9802 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C40F5426247EB68600AE9802 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C459FAB6247DB071005AB618 /* Wunderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C459FAB9247DB071005AB618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C459FABB247DB071005AB618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				C459FAED247DCD90005AB618 /* SignUpInViewController.swift */,
 				C40F5424247E9B3E00AE9802 /* HomeViewController.swift */,
+				C40F5426247EB68600AE9802 /* TasksViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				C459FAC4247DB071005AB618 /* Wunderlist.xcdatamodeld in Sources */,
 				C459FABE247DB071005AB618 /* ViewController.swift in Sources */,
 				C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */,
+				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
 				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
 				C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */,
