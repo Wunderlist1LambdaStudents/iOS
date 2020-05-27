@@ -194,6 +194,7 @@
                                     <color key="titleColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="addTaskTapped:" destination="yYw-Ql-rEa" eventType="touchUpInside" id="XET-Gh-G9f"/>
                                     <segue destination="Bwj-pw-sZh" kind="presentation" id="9QC-R3-nhQ"/>
                                 </connections>
                             </button>
@@ -204,12 +205,19 @@
                                     <segment title="Day"/>
                                     <segment title="Month"/>
                                 </segments>
+                                <connections>
+                                    <action selector="didChangeSegment:" destination="yYw-Ql-rEa" eventType="valueChanged" id="hqC-z5-Xk1"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="amw-SF-FQ1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="qNe-XJ-UlE"/>
+                    <connections>
+                        <outlet property="searchBar" destination="HD1-QB-yra" id="XMF-Kc-QWn"/>
+                        <outlet property="segmentBar" destination="qkw-Sr-lZU" id="iCL-3C-u6o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pd1-6W-LpX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

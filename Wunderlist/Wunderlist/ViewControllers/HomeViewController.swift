@@ -10,13 +10,23 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var segmentBar: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+    }
+    
+    @IBAction func addTaskTapped(_ sender: Any) {
+    }
+    
+    
     /*
     // MARK: - Navigation
 
