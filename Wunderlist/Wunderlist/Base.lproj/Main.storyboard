@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign Up In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wunderlist" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignUpInViewController" customModule="Wunderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,17 +31,27 @@
                                 <rect key="frame" x="162" y="756" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LUh-Wb-RoM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1S-RW-g48">
                                 <rect key="frame" x="107" y="794" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Don't have an account?"/>
+                                <connections>
+                                    <action selector="changeSignType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhB-bD-dyD"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="changeButton" destination="I1S-RW-g48" id="cnP-bM-J3L"/>
+                        <outlet property="nameField" destination="VmY-8J-LPj" id="eYu-Rx-a7P"/>
+                        <outlet property="passField" destination="uyA-NO-dKT" id="moz-Xj-BtP"/>
+                        <outlet property="signInButton" destination="4Dv-ak-mId" id="wBw-Qe-7yV"/>
                         <segue destination="jcF-Zj-BEG" kind="presentation" modalPresentationStyle="fullScreen" id="5mi-Ew-wiE"/>
                     </connections>
                 </viewController>
@@ -137,7 +147,7 @@
         <!--Home-->
         <scene sceneID="tfy-xL-gvT">
             <objects>
-                <viewController id="yYw-Ql-rEa" sceneMemberID="viewController">
+                <viewController id="yYw-Ql-rEa" customClass="HomeViewController" customModule="Wunderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lzx-zj-jM1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

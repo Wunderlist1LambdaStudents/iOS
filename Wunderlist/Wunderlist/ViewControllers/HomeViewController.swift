@@ -1,34 +1,20 @@
 //
-//  SignUpInViewController.swift
+//  HomeViewController.swift
 //  Wunderlist
 //
-//  Created by Bradley Diroff on 5/26/20.
+//  Created by Bradley Diroff on 5/27/20.
 //  Copyright © 2020 Bradley Diroff. All rights reserved.
 //
 
 import UIKit
 
-class SignUpInViewController: UIViewController {
+class HomeViewController: UIViewController {
 
-    @IBOutlet weak var nameField: UITextField!
-    @IBOutlet weak var passField: UITextField!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var changeButton: UIButton!
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func signInTapped(_ sender: Any) {
-    }
-    
-    @IBAction func changeSignType(_ sender: Any) {
-    }
-    
     
 
     /*
