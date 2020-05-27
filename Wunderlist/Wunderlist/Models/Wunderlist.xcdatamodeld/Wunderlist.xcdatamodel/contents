@@ -4,10 +4,11 @@
         <attribute name="bodyDescription" optional="YES" attributeType="String"/>
         <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Entry" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Entry" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
