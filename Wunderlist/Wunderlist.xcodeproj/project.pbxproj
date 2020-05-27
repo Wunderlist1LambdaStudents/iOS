@@ -1,0 +1,640 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5424247E9B3E00AE9802 /* HomeViewController.swift */; };
+		C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5426247EB68600AE9802 /* TasksViewController.swift */; };
+		C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAB9247DB071005AB618 /* AppDelegate.swift */; };
+		C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FABB247DB071005AB618 /* SceneDelegate.swift */; };
+		C459FABE247DB071005AB618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FABD247DB071005AB618 /* ViewController.swift */; };
+		C459FAC1247DB071005AB618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C459FABF247DB071005AB618 /* Main.storyboard */; };
+		C459FAC4247DB071005AB618 /* Wunderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C459FAC2247DB071005AB618 /* Wunderlist.xcdatamodeld */; };
+		C459FAC6247DB07A005AB618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C459FAC5247DB07A005AB618 /* Assets.xcassets */; };
+		C459FAC9247DB07A005AB618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C459FAC7247DB07A005AB618 /* LaunchScreen.storyboard */; };
+		C459FAD4247DB07A005AB618 /* WunderlistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAD3247DB07A005AB618 /* WunderlistTests.swift */; };
+		C459FADF247DB07A005AB618 /* WunderlistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FADE247DB07A005AB618 /* WunderlistUITests.swift */; };
+		C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAED247DCD90005AB618 /* SignUpInViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C459FAD0247DB07A005AB618 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C459FAAE247DB071005AB618 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C459FAB5247DB071005AB618;
+			remoteInfo = Wunderlist;
+		};
+		C459FADB247DB07A005AB618 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C459FAAE247DB071005AB618 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C459FAB5247DB071005AB618;
+			remoteInfo = Wunderlist;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C40F5424247E9B3E00AE9802 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C40F5426247EB68600AE9802 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		C459FAB6247DB071005AB618 /* Wunderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C459FAB9247DB071005AB618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C459FABB247DB071005AB618 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C459FABD247DB071005AB618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C459FAC0247DB071005AB618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C459FAC3247DB071005AB618 /* Wunderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wunderlist.xcdatamodel; sourceTree = "<group>"; };
+		C459FAC5247DB07A005AB618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C459FAC8247DB07A005AB618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C459FACA247DB07A005AB618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C459FACF247DB07A005AB618 /* WunderlistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WunderlistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C459FAD3247DB07A005AB618 /* WunderlistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderlistTests.swift; sourceTree = "<group>"; };
+		C459FAD5247DB07A005AB618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C459FADA247DB07A005AB618 /* WunderlistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WunderlistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C459FADE247DB07A005AB618 /* WunderlistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WunderlistUITests.swift; sourceTree = "<group>"; };
+		C459FAE0247DB07A005AB618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C459FAED247DCD90005AB618 /* SignUpInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C459FAB3247DB071005AB618 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FACC247DB07A005AB618 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FAD7247DB07A005AB618 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C459FAAD247DB071005AB618 = {
+			isa = PBXGroup;
+			children = (
+				C459FAB8247DB071005AB618 /* Wunderlist */,
+				C459FAD2247DB07A005AB618 /* WunderlistTests */,
+				C459FADD247DB07A005AB618 /* WunderlistUITests */,
+				C459FAB7247DB071005AB618 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C459FAB7247DB071005AB618 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C459FAB6247DB071005AB618 /* Wunderlist.app */,
+				C459FACF247DB07A005AB618 /* WunderlistTests.xctest */,
+				C459FADA247DB07A005AB618 /* WunderlistUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C459FAB8247DB071005AB618 /* Wunderlist */ = {
+			isa = PBXGroup;
+			children = (
+				C459FAEF247DCE68005AB618 /* Views */,
+				C459FAEC247DB5A7005AB618 /* ViewControllers */,
+				C459FAB9247DB071005AB618 /* AppDelegate.swift */,
+				C459FABB247DB071005AB618 /* SceneDelegate.swift */,
+				C459FABD247DB071005AB618 /* ViewController.swift */,
+				C459FABF247DB071005AB618 /* Main.storyboard */,
+				C459FAC5247DB07A005AB618 /* Assets.xcassets */,
+				C459FAC7247DB07A005AB618 /* LaunchScreen.storyboard */,
+				C459FACA247DB07A005AB618 /* Info.plist */,
+				C459FAC2247DB071005AB618 /* Wunderlist.xcdatamodeld */,
+			);
+			path = Wunderlist;
+			sourceTree = "<group>";
+		};
+		C459FAD2247DB07A005AB618 /* WunderlistTests */ = {
+			isa = PBXGroup;
+			children = (
+				C459FAD3247DB07A005AB618 /* WunderlistTests.swift */,
+				C459FAD5247DB07A005AB618 /* Info.plist */,
+			);
+			path = WunderlistTests;
+			sourceTree = "<group>";
+		};
+		C459FADD247DB07A005AB618 /* WunderlistUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C459FADE247DB07A005AB618 /* WunderlistUITests.swift */,
+				C459FAE0247DB07A005AB618 /* Info.plist */,
+			);
+			path = WunderlistUITests;
+			sourceTree = "<group>";
+		};
+		C459FAEC247DB5A7005AB618 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C459FAED247DCD90005AB618 /* SignUpInViewController.swift */,
+				C40F5424247E9B3E00AE9802 /* HomeViewController.swift */,
+				C40F5426247EB68600AE9802 /* TasksViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C459FAEF247DCE68005AB618 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C459FAB5247DB071005AB618 /* Wunderlist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C459FAE3247DB07A005AB618 /* Build configuration list for PBXNativeTarget "Wunderlist" */;
+			buildPhases = (
+				C459FAB2247DB071005AB618 /* Sources */,
+				C459FAB3247DB071005AB618 /* Frameworks */,
+				C459FAB4247DB071005AB618 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wunderlist;
+			productName = Wunderlist;
+			productReference = C459FAB6247DB071005AB618 /* Wunderlist.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C459FACE247DB07A005AB618 /* WunderlistTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C459FAE6247DB07A005AB618 /* Build configuration list for PBXNativeTarget "WunderlistTests" */;
+			buildPhases = (
+				C459FACB247DB07A005AB618 /* Sources */,
+				C459FACC247DB07A005AB618 /* Frameworks */,
+				C459FACD247DB07A005AB618 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C459FAD1247DB07A005AB618 /* PBXTargetDependency */,
+			);
+			name = WunderlistTests;
+			productName = WunderlistTests;
+			productReference = C459FACF247DB07A005AB618 /* WunderlistTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C459FAD9247DB07A005AB618 /* WunderlistUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C459FAE9247DB07A005AB618 /* Build configuration list for PBXNativeTarget "WunderlistUITests" */;
+			buildPhases = (
+				C459FAD6247DB07A005AB618 /* Sources */,
+				C459FAD7247DB07A005AB618 /* Frameworks */,
+				C459FAD8247DB07A005AB618 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C459FADC247DB07A005AB618 /* PBXTargetDependency */,
+			);
+			name = WunderlistUITests;
+			productName = WunderlistUITests;
+			productReference = C459FADA247DB07A005AB618 /* WunderlistUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C459FAAE247DB071005AB618 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Bradley Diroff";
+				TargetAttributes = {
+					C459FAB5247DB071005AB618 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					C459FACE247DB07A005AB618 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = C459FAB5247DB071005AB618;
+					};
+					C459FAD9247DB07A005AB618 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = C459FAB5247DB071005AB618;
+					};
+				};
+			};
+			buildConfigurationList = C459FAB1247DB071005AB618 /* Build configuration list for PBXProject "Wunderlist" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C459FAAD247DB071005AB618;
+			productRefGroup = C459FAB7247DB071005AB618 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C459FAB5247DB071005AB618 /* Wunderlist */,
+				C459FACE247DB07A005AB618 /* WunderlistTests */,
+				C459FAD9247DB07A005AB618 /* WunderlistUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C459FAB4247DB071005AB618 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C459FAC9247DB07A005AB618 /* LaunchScreen.storyboard in Resources */,
+				C459FAC6247DB07A005AB618 /* Assets.xcassets in Resources */,
+				C459FAC1247DB071005AB618 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FACD247DB07A005AB618 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FAD8247DB07A005AB618 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C459FAB2247DB071005AB618 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C459FAC4247DB071005AB618 /* Wunderlist.xcdatamodeld in Sources */,
+				C459FABE247DB071005AB618 /* ViewController.swift in Sources */,
+				C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */,
+				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
+				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
+				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
+				C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FACB247DB07A005AB618 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C459FAD4247DB07A005AB618 /* WunderlistTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C459FAD6247DB07A005AB618 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C459FADF247DB07A005AB618 /* WunderlistUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C459FAD1247DB07A005AB618 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C459FAB5247DB071005AB618 /* Wunderlist */;
+			targetProxy = C459FAD0247DB07A005AB618 /* PBXContainerItemProxy */;
+		};
+		C459FADC247DB07A005AB618 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C459FAB5247DB071005AB618 /* Wunderlist */;
+			targetProxy = C459FADB247DB07A005AB618 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C459FABF247DB071005AB618 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C459FAC0247DB071005AB618 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C459FAC7247DB07A005AB618 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C459FAC8247DB07A005AB618 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C459FAE1247DB07A005AB618 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C459FAE2247DB07A005AB618 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C459FAE4247DB07A005AB618 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = Wunderlist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.Wunderlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C459FAE5247DB07A005AB618 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = Wunderlist/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.Wunderlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C459FAE7247DB07A005AB618 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = WunderlistTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.WunderlistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wunderlist.app/Wunderlist";
+			};
+			name = Debug;
+		};
+		C459FAE8247DB07A005AB618 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = WunderlistTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.WunderlistTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wunderlist.app/Wunderlist";
+			};
+			name = Release;
+		};
+		C459FAEA247DB07A005AB618 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = WunderlistUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.WunderlistUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wunderlist;
+			};
+			name = Debug;
+		};
+		C459FAEB247DB07A005AB618 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZTTC6J4225;
+				INFOPLIST_FILE = WunderlistUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yesTime.WunderlistUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wunderlist;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C459FAB1247DB071005AB618 /* Build configuration list for PBXProject "Wunderlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C459FAE1247DB07A005AB618 /* Debug */,
+				C459FAE2247DB07A005AB618 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C459FAE3247DB07A005AB618 /* Build configuration list for PBXNativeTarget "Wunderlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C459FAE4247DB07A005AB618 /* Debug */,
+				C459FAE5247DB07A005AB618 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C459FAE6247DB07A005AB618 /* Build configuration list for PBXNativeTarget "WunderlistTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C459FAE7247DB07A005AB618 /* Debug */,
+				C459FAE8247DB07A005AB618 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C459FAE9247DB07A005AB618 /* Build configuration list for PBXNativeTarget "WunderlistUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C459FAEA247DB07A005AB618 /* Debug */,
+				C459FAEB247DB07A005AB618 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C459FAC2247DB071005AB618 /* Wunderlist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C459FAC3247DB071005AB618 /* Wunderlist.xcdatamodel */,
+			);
+			currentVersion = C459FAC3247DB071005AB618 /* Wunderlist.xcdatamodel */;
+			path = Wunderlist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C459FAAE247DB071005AB618 /* Project object */;
+}
