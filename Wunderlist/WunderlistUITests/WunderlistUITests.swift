@@ -9,6 +9,16 @@
 import XCTest
 
 class WunderlistUITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    var searchBar: XCUIElement {
+        return app.otherElements["Wunderlist.searchBar"]
+    }
+    
+    var loginButton: XCUIElement {
+        return app/*@START_MENU_TOKEN@*/.buttons["Sign In"].staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -24,7 +34,7 @@ class WunderlistUITests: XCTestCase {
     }
     
     func testFieldsExist() throws {
-        let app = XCUIApplication()
+        app = XCUIApplication()
         app.launch()
         
         let password = app.textFields["Password"]
@@ -38,20 +48,31 @@ class WunderlistUITests: XCTestCase {
                 
     }
     
-    func testHomeControllerSearchBar() throws {
+    func testSegmentedControlExistence() throws {
         
-        let app = XCUIApplication()
+        app = XCUIApplication()
         app.launch()
         
-        let button = app/*@START_MENU_TOKEN@*/.buttons["Sign In"].staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
         let segmentDay = app/*@START_MENU_TOKEN@*/.buttons["Day"]/*[[".segmentedControls.buttons[\"Day\"]",".buttons[\"Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         let segmentMonth = app/*@START_MENU_TOKEN@*/.buttons["Month"]/*[[".segmentedControls.buttons[\"Month\"]",".buttons[\"Month\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         
         XCTAssertTrue(segmentDay.exists)
         XCTAssertTrue(segmentMonth.exists)
         
-        button.tap()
+        loginButton.tap()
         segmentDay.tap()
+        
+      //  "Wunderlist.searchBar"
+        
+    }
+    
+    func testSearchType() throws {
+        app = XCUIApplication()
+        app.launch()
+        
+        loginButton.tap()
+        
+        
         
     }
 

@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
+        
         // Do any additional setup after loading the view.
     }
     
