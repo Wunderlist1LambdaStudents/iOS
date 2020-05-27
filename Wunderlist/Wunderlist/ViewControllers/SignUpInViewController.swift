@@ -15,6 +15,8 @@ class SignUpInViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var changeButton: UIButton!
     
+    let segueName = "loginSegue"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,7 @@ class SignUpInViewController: UIViewController {
     }
     
     @IBAction func signInTapped(_ sender: Any) {
+        performSegue(withIdentifier: segueName, sender: nil)
     }
     
     @IBAction func changeSignType(_ sender: Any) {
