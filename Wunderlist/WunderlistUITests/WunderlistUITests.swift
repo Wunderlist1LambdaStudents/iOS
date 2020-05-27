@@ -23,8 +23,19 @@ class WunderlistUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testKeyboardCovering() throws {
+    func testKeyboardAbleToType() throws {
+        let app = XCUIApplication()
+        app.launch()
         
+        let password = app.textFields["Password"]
+        let userName = app.textFields["Name"]
+        
+        XCTAssertTrue(password.exists)
+        XCTAssertTrue(userName.exists)
+        
+        password.tap()
+        userName.tap()
+                
     }
 
     func testExample() throws {
