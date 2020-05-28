@@ -16,6 +16,8 @@
 		BED78ECD24800EA3009B6DF9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC724800EA3009B6DF9 /* CoreDataStack.swift */; };
 		BED78ECE24800EA3009B6DF9 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC824800EA3009B6DF9 /* EntryRepresentation.swift */; };
 		BED78ECF24800EA3009B6DF9 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC924800EA3009B6DF9 /* User+Convenience.swift */; };
+		C40CAF9824801E210081938E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40CAF9724801E210081938E /* HomeTableViewCell.swift */; };
+		C40CAF9A24801E360081938E /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40CAF9924801E360081938E /* TasksTableViewCell.swift */; };
 		C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5424247E9B3E00AE9802 /* HomeViewController.swift */; };
 		C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5426247EB68600AE9802 /* TasksViewController.swift */; };
 		C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAB9247DB071005AB618 /* AppDelegate.swift */; };
@@ -55,6 +57,8 @@
 		BED78EC724800EA3009B6DF9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Models/CoreDataStack.swift; sourceTree = "<group>"; };
 		BED78EC824800EA3009B6DF9 /* EntryRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryRepresentation.swift; path = Models/EntryRepresentation.swift; sourceTree = "<group>"; };
 		BED78EC924800EA3009B6DF9 /* User+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+Convenience.swift"; path = "Models/User+Convenience.swift"; sourceTree = "<group>"; };
+		C40CAF9724801E210081938E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		C40CAF9924801E360081938E /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		C40F5424247E9B3E00AE9802 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C40F5426247EB68600AE9802 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C459FAB6247DB071005AB618 /* Wunderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +133,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		C40CAF9624801D060081938E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C40CAF9724801E210081938E /* HomeTableViewCell.swift */,
+				C40CAF9924801E360081938E /* TasksTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		C459FAAD247DB071005AB618 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +165,7 @@
 		C459FAB8247DB071005AB618 /* Wunderlist */ = {
 			isa = PBXGroup;
 			children = (
+				C40CAF9624801D060081938E /* Cells */,
 				BED78EC224800E92009B6DF9 /* Models */,
 				40408215247EE8B300A12850 /* Application */,
 				40408214247EE8A400A12850 /* Model Controller */,
@@ -338,11 +352,13 @@
 				BED78ECD24800EA3009B6DF9 /* CoreDataStack.swift in Sources */,
 				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
 				BED78ECA24800EA3009B6DF9 /* Wunderlist.xcdatamodeld in Sources */,
+				C40CAF9824801E210081938E /* HomeTableViewCell.swift in Sources */,
 				BED78ECF24800EA3009B6DF9 /* User+Convenience.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
 				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
 				BED78ECB24800EA3009B6DF9 /* UserRepresentation.swift in Sources */,
 				BED78EB024800D9D009B6DF9 /* NetworkController.swift in Sources */,
+				C40CAF9A24801E360081938E /* TasksTableViewCell.swift in Sources */,
 				BED78ECC24800EA3009B6DF9 /* Entry+Convenience.swift in Sources */,
 				C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */,
 				BED78ECE24800EA3009B6DF9 /* EntryRepresentation.swift in Sources */,
