@@ -11,6 +11,8 @@
 		BED78E94247EF933009B6DF9 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78E93247EF933009B6DF9 /* Entry+Convenience.swift */; };
 		BED78E96247EFD5E009B6DF9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78E95247EFD5E009B6DF9 /* CoreDataStack.swift */; };
 		BED78E98247F011C009B6DF9 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78E97247F011C009B6DF9 /* EntryRepresentation.swift */; };
+		BED78E9A247F5D69009B6DF9 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78E99247F5D69009B6DF9 /* User+Convenience.swift */; };
+		BED78E9C247F5E2F009B6DF9 /* UserRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78E9B247F5E2F009B6DF9 /* UserRepresentation.swift */; };
 		C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5424247E9B3E00AE9802 /* HomeViewController.swift */; };
 		C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5426247EB68600AE9802 /* TasksViewController.swift */; };
 		C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAB9247DB071005AB618 /* AppDelegate.swift */; };
@@ -47,6 +49,8 @@
 		BED78E93247EF933009B6DF9 /* Entry+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Convenience.swift"; sourceTree = "<group>"; };
 		BED78E95247EFD5E009B6DF9 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BED78E97247F011C009B6DF9 /* EntryRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRepresentation.swift; sourceTree = "<group>"; };
+		BED78E99247F5D69009B6DF9 /* User+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+Convenience.swift"; sourceTree = "<group>"; };
+		BED78E9B247F5E2F009B6DF9 /* UserRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepresentation.swift; sourceTree = "<group>"; };
 		C40F5424247E9B3E00AE9802 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C40F5426247EB68600AE9802 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C459FAB6247DB071005AB618 /* Wunderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,6 +103,8 @@
 				BED78E93247EF933009B6DF9 /* Entry+Convenience.swift */,
 				BED78E95247EFD5E009B6DF9 /* CoreDataStack.swift */,
 				BED78E97247F011C009B6DF9 /* EntryRepresentation.swift */,
+				BED78E99247F5D69009B6DF9 /* User+Convenience.swift */,
+				BED78E9B247F5E2F009B6DF9 /* UserRepresentation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BED78E92247EF73B009B6DF9 /* Wunderlist.xcdatamodeld in Sources */,
+				BED78E9C247F5E2F009B6DF9 /* UserRepresentation.swift in Sources */,
 				BED78E94247EF933009B6DF9 /* Entry+Convenience.swift in Sources */,
 				C459FAC4247DB071005AB618 /* Wunderlist.xcdatamodeld in Sources */,
 				C459FABE247DB071005AB618 /* ViewController.swift in Sources */,
@@ -315,6 +322,7 @@
 				BED78E96247EFD5E009B6DF9 /* CoreDataStack.swift in Sources */,
 				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
+				BED78E9A247F5D69009B6DF9 /* User+Convenience.swift in Sources */,
 				BED78E98247F011C009B6DF9 /* EntryRepresentation.swift in Sources */,
 				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
 				C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */,
