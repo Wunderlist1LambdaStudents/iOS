@@ -165,9 +165,9 @@
 		C459FAB8247DB071005AB618 /* Wunderlist */ = {
 			isa = PBXGroup;
 			children = (
-				C40CAF9624801D060081938E /* Cells */,
-				BED78EC224800E92009B6DF9 /* Models */,
 				40408215247EE8B300A12850 /* Application */,
+				BED78EC224800E92009B6DF9 /* Models */,
+				C40CAF9624801D060081938E /* Cells */,
 				40408214247EE8A400A12850 /* Model Controller */,
 				C459FAEF247DCE68005AB618 /* Views */,
 				C459FAEC247DB5A7005AB618 /* ViewControllers */,
