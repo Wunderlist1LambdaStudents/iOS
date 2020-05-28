@@ -16,6 +16,7 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var dailyButton: UIButton!
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var yearlyButton: UIButton!
+    @IBOutlet weak var taskTitle: UILabel!
     
     
 
