@@ -52,7 +52,7 @@
                         <outlet property="nameField" destination="VmY-8J-LPj" id="eYu-Rx-a7P"/>
                         <outlet property="passField" destination="uyA-NO-dKT" id="moz-Xj-BtP"/>
                         <outlet property="signInButton" destination="4Dv-ak-mId" id="wBw-Qe-7yV"/>
-                        <segue destination="jcF-Zj-BEG" kind="presentation" modalPresentationStyle="fullScreen" id="5mi-Ew-wiE"/>
+                        <segue destination="jcF-Zj-BEG" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="5mi-Ew-wiE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -75,10 +75,10 @@
             </objects>
             <point key="canvasLocation" x="2783" y="156"/>
         </scene>
-        <!--View Controller-->
+        <!--New Task View Controller-->
         <scene sceneID="EtI-V2-dDF">
             <objects>
-                <viewController id="Bwj-pw-sZh" sceneMemberID="viewController">
+                <viewController id="Bwj-pw-sZh" customClass="NewTaskViewController" customModule="Wunderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzW-P6-k3S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,6 +135,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="saveTaskButton:" destination="Bwj-pw-sZh" eventType="touchUpInside" id="4Z3-be-2DJ"/>
                                     <action selector="saveTaskTapped:" destination="uLQ-AF-i5C" eventType="touchUpInside" id="V4z-6p-zh0"/>
                                 </connections>
                             </button>
@@ -142,6 +143,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ghP-y2-OLy"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Teu-km-bZW" id="hiV-br-7UU"/>
+                        <outlet property="notesTextField" destination="iHQ-eX-mMe" id="kPv-A9-No0"/>
+                        <outlet property="taskNameTextField" destination="kCb-jP-GWC" id="T9B-8J-7r7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ID-jL-BHV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="uLQ-AF-i5C" userLabel="Exit" sceneMemberID="exit"/>

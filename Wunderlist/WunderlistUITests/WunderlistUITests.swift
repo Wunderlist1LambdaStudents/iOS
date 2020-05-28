@@ -9,6 +9,16 @@
 import XCTest
 
 class WunderlistUITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    var searchBar: XCUIElement {
+        return app.otherElements["Wunderlist.searchBar"]
+    }
+    
+    var loginButton: XCUIElement {
+        return app/*@START_MENU_TOKEN@*/.buttons["Sign In"].staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -23,8 +33,55 @@ class WunderlistUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
-    func testKeyboardCovering() throws {
+
+    func testFieldsExist() throws {
+        app = XCUIApplication()
+
+    func testKeyboardAbleToType() throws {
+        let app = XCUIApplication()
+        app.launch()
         
+        let password = app.textFields["Password"]
+        let userName = app.textFields["Name"]
+        
+        XCTAssertTrue(password.exists)
+        XCTAssertTrue(userName.exists)
+
+        
+        password.tap()
+        userName.tap()
+                
+    }
+    
+    func testSegmentedControlExistence() throws {
+        
+        app = XCUIApplication()
+        app.launch()
+        
+        let segmentDay = app/*@START_MENU_TOKEN@*/.buttons["Day"]/*[[".segmentedControls.buttons[\"Day\"]",".buttons[\"Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        let segmentMonth = app/*@START_MENU_TOKEN@*/.buttons["Month"]/*[[".segmentedControls.buttons[\"Month\"]",".buttons[\"Month\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        
+        XCTAssertTrue(segmentDay.exists)
+        XCTAssertTrue(segmentMonth.exists)
+        
+        loginButton.tap()
+        segmentDay.tap()
+        
+      //  "Wunderlist.searchBar"
+        
+    }
+    
+    func testSearchType() throws {
+        app = XCUIApplication()
+        app.launch()
+        
+        loginButton.tap()
+        
+        XCTAssertTrue(searchBar.exists)
+        
+        searchBar.tap()
+        searchBar.typeText("Testing")
+                
     }
 
     func testExample() throws {
@@ -45,3 +102,4 @@ class WunderlistUITests: XCTestCase {
         }
     }
 }
+
