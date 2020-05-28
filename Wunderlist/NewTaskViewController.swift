@@ -13,6 +13,10 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskNameTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notesTextField: UITextField!
+    @IBOutlet weak var dailyButton: UIButton!
+    @IBOutlet weak var monthlyButton: UIButton!
+    @IBOutlet weak var yearlyButton: UIButton!
+    
     
 
     override func viewDidLoad() {
@@ -23,6 +27,19 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
     }
+    
+    @IBAction func dismissPage(_ sender: Any) {
+    }
+    
+    @IBAction func dailyTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func monthlyTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func yearlyTapped(_ sender: UIButton) {
+    }
+    
     
     
 }
