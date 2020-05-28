@@ -32,10 +32,6 @@ class WunderlistUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-    
-
-    func testFieldsExist() throws {
-        app = XCUIApplication()
 
     func testKeyboardAbleToType() throws {
         let app = XCUIApplication()
@@ -58,16 +54,16 @@ class WunderlistUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
         
+        loginButton.tap()
+        
         let segmentDay = app/*@START_MENU_TOKEN@*/.buttons["Day"]/*[[".segmentedControls.buttons[\"Day\"]",".buttons[\"Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         let segmentMonth = app/*@START_MENU_TOKEN@*/.buttons["Month"]/*[[".segmentedControls.buttons[\"Month\"]",".buttons[\"Month\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         
         XCTAssertTrue(segmentDay.exists)
         XCTAssertTrue(segmentMonth.exists)
         
-        loginButton.tap()
+        segmentMonth.tap()
         segmentDay.tap()
-        
-      //  "Wunderlist.searchBar"
         
     }
     
