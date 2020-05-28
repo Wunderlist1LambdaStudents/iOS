@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		40408217247EE91600A12850 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40408216247EE91600A12850 /* NewTaskViewController.swift */; };
+		BED78EB024800D9D009B6DF9 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EAE24800D9D009B6DF9 /* NetworkController.swift */; };
+		BED78EB124800D9D009B6DF9 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EAF24800D9D009B6DF9 /* UserController.swift */; };
+		BED78EB324800DA5009B6DF9 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = BED78EB224800DA5009B6DF9 /* Models */; };
 		C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5424247E9B3E00AE9802 /* HomeViewController.swift */; };
 		C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40F5426247EB68600AE9802 /* TasksViewController.swift */; };
 		C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C459FAB9247DB071005AB618 /* AppDelegate.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		40408216247EE91600A12850 /* NewTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = SOURCE_ROOT; };
+		BED78EAE24800D9D009B6DF9 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkController.swift; path = "Wunderlist/Model Controllers/NetworkController.swift"; sourceTree = SOURCE_ROOT; };
+		BED78EAF24800D9D009B6DF9 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserController.swift; path = "Wunderlist/Model Controllers/UserController.swift"; sourceTree = SOURCE_ROOT; };
+		BED78EB224800DA5009B6DF9 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		C40F5424247E9B3E00AE9802 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C40F5426247EB68600AE9802 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		C459FAB6247DB071005AB618 /* Wunderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wunderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,17 +88,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		40408213247EE89C00A12850 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C459FAC2247DB071005AB618 /* Wunderlist.xcdatamodeld */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		40408214247EE8A400A12850 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BED78EAE24800D9D009B6DF9 /* NetworkController.swift */,
+				BED78EAF24800D9D009B6DF9 /* UserController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -129,9 +129,9 @@
 		C459FAB8247DB071005AB618 /* Wunderlist */ = {
 			isa = PBXGroup;
 			children = (
+				BED78EB224800DA5009B6DF9 /* Models */,
 				40408215247EE8B300A12850 /* Application */,
 				40408214247EE8A400A12850 /* Model Controller */,
-				40408213247EE89C00A12850 /* Model */,
 				C459FAEF247DCE68005AB618 /* Views */,
 				C459FAEC247DB5A7005AB618 /* ViewControllers */,
 				C459FAC5247DB07A005AB618 /* Assets.xcassets */,
@@ -284,6 +284,7 @@
 			files = (
 				C459FAC9247DB07A005AB618 /* LaunchScreen.storyboard in Resources */,
 				C459FAC6247DB07A005AB618 /* Assets.xcassets in Resources */,
+				BED78EB324800DA5009B6DF9 /* Models in Resources */,
 				C459FAC1247DB071005AB618 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,15 +310,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C459FAC4247DB071005AB618 /* Wunderlist.xcdatamodeld in Sources */,
 				40408217247EE91600A12850 /* NewTaskViewController.swift in Sources */,
 				C459FABA247DB071005AB618 /* AppDelegate.swift in Sources */,
-				BED78E96247EFD5E009B6DF9 /* CoreDataStack.swift in Sources */,
+				BED78EB124800D9D009B6DF9 /* UserController.swift in Sources */,
 				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
-				BED78E9A247F5D69009B6DF9 /* User+Convenience.swift in Sources */,
-				BED78E98247F011C009B6DF9 /* EntryRepresentation.swift in Sources */,
 				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
+				BED78EB024800D9D009B6DF9 /* NetworkController.swift in Sources */,
 				C40F5425247E9B3E00AE9802 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,19 +646,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BED78E90247EF73B009B6DF9 /* Wunderlist.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BED78E91247EF73B009B6DF9 /* Wunderlist.xcdatamodel */,
-			);
-			currentVersion = BED78E91247EF73B009B6DF9 /* Wunderlist.xcdatamodel */;
-			path = Wunderlist.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C459FAAE247DB071005AB618 /* Project object */;
 }
