@@ -20,7 +20,10 @@ class TasksViewController: UIViewController {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
         let context = CoreDataStack.shared.mainContext
-        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: "date", cacheName: nil)
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: context,
+                                             sectionNameKeyPath: "date",
+                                             cacheName: nil)
         frc.delegate = self
         try! frc.performFetch()
         return frc
@@ -46,7 +49,8 @@ extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
         let warningCell = UITableViewCell()
         warningCell.backgroundColor = UIColor.red
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TasksTableViewCell else {return warningCell}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell",
+                                                       for: indexPath) as? TasksTableViewCell else {return warningCell}
         
         cell.delegate = self
         
@@ -73,9 +77,11 @@ extension TasksViewController: NSFetchedResultsControllerDelegate {
                     for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .automatic)
+            tableView.insertSections(IndexSet(integer: sectionIndex),
+                                     with: .automatic)
         case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .automatic)
+            tableView.deleteSections(IndexSet(integer: sectionIndex),
+                                     with: .automatic)
         default:
             break
         }

@@ -14,16 +14,21 @@ class UserController {
     
     var bearer: Bearer?
     
-    func registerUser(username: String, password: String, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    func registerUser(username: String,
+                      password: String,
+                      completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
-        let registerURL = URL(string: "/api/auth/register", relativeTo: NetworkController.baseURL)!
+        let registerURL = URL(string: "/api/auth/register",
+                              relativeTo: NetworkController.baseURL)!
         
         var request = URLRequest(url: registerURL)
         request.httpMethod = RequestType.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
         
         do {
-            let userRepresentation = UserRepresentation(username: username, password: password)
+            let userRepresentation = UserRepresentation(username: username,
+                                                        password: password)
             request.httpBody = try JSONEncoder().encode(userRepresentation)
         } catch {
             NSLog("Error encoding user: \(error)")
@@ -42,18 +47,19 @@ class UserController {
         }.resume()
     }
     
-    func loginUser(username: String, password: String, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    func loginUser(username: String,
+                   password: String,
+                   completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         let loginURL = URL(string: "/api/auth/login", relativeTo: NetworkController.baseURL)!
         
         var request = URLRequest(url: loginURL)
         request.httpMethod = RequestType.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-//        let bodyData = "username=\(username)&password=\(password)"
-//        request.httpBody = bodyData.data(using: .utf8)
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
         
         do {
-            let representation = UserRepresentation(username: username, password: password)
+            let representation = UserRepresentation(username: username,
+                                                    password: password)
             request.httpBody = try JSONEncoder().encode(representation)
         } catch {
             NSLog("Error encoding user \(error)")

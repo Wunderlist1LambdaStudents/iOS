@@ -30,7 +30,9 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != "" else { return }
+        guard let titleName = taskNameTextField.text, titleName != "",
+            let description = notesTextField.text,
+            description != "" else { return }
         
         var important = false
         
@@ -43,11 +45,17 @@ class NewTaskViewController: UIViewController {
             return
         }
         
-        EntryController.shared.createEntry(id: Int(userId), title: titleName, bodyDescription: description, date: datePicker.date, important: important, user_id: Int(userId))
+        EntryController.shared.createEntry(id: Int(userId),
+                                           title: titleName,
+                                           bodyDescription: description,
+                                           date: datePicker.date,
+                                           important: important,
+                                           user_id: Int(userId))
         
         do {
              try CoreDataStack.shared.mainContext.save()
-             navigationController?.dismiss(animated: true, completion: nil)
+             navigationController?.dismiss(animated: true,
+                                           completion: nil)
          } catch {
              NSLog("Error saving managed object context: \(error)")
          }

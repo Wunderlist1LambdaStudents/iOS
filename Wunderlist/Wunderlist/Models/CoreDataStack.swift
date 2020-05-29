@@ -19,7 +19,6 @@ class CoreDataStack {
                 fatalError()
             }
         }
-        
         return container
     }()
     

@@ -28,7 +28,6 @@ class TasksTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {

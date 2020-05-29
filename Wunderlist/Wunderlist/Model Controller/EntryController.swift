@@ -13,19 +13,18 @@ class EntryController {
     
     static let shared = EntryController()
     
-//    init() {
-//        fetchEntriesFromAPI()
-//    }
-    
     func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
         
-        let url = URL(string: "/api/todos", relativeTo: NetworkController.baseURL)!
+        let url = URL(string: "/api/todos",
+                      relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
         requestURL.httpMethod = RequestType.get.rawValue
-        requestURL.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        requestURL.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+        requestURL.addValue("application/json",
+                            forHTTPHeaderField: "Content-Type")
+        requestURL.setValue("Bearer \(token ?? "")",
+            forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: requestURL) { data, response, error in
             if let error = error {
@@ -41,7 +40,8 @@ class EntryController {
             }
             
             do {
-                let entryRepresentations = Array(try JSONDecoder().decode([String : EntryRepresentation].self, from: data).values)
+                let entryRepresentations = Array(try JSONDecoder().decode([String : EntryRepresentation].self,
+                                                                          from: data).values)
                 
                 try self.updateEntries(with: entryRepresentations)
             } catch {
@@ -54,12 +54,14 @@ class EntryController {
     private func updateEntries(with representations: [EntryRepresentation]) throws {
         let entriesToFetch = representations.compactMap { $0.id }
         
-        let representationsByID = Dictionary(uniqueKeysWithValues: zip(entriesToFetch, representations))
+        let representationsByID = Dictionary(uniqueKeysWithValues: zip(entriesToFetch,
+                                                                       representations))
         
         var entriesToCreate = representationsByID
         
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id IN %@", entriesToFetch)
+        fetchRequest.predicate = NSPredicate(format: "id IN %@",
+                                             entriesToFetch)
         
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
         
@@ -81,7 +83,8 @@ class EntryController {
             
             
             for representation in entriesToCreate.values {
-                Entry(entryRepresentation: representation, context: backgroundContext)
+                Entry(entryRepresentation: representation,
+                      context: backgroundContext)
             }
         }
         
@@ -90,7 +93,8 @@ class EntryController {
         try CoreDataStack.shared.save(context: backgroundContext)
     }
     
-    private func update(entry: Entry, with representation: EntryRepresentation) {
+    private func update(entry: Entry,
+                        with representation: EntryRepresentation) {
         entry.bodyDescription = representation.bodyDescription
         entry.completed = representation.completed
         entry.important = representation.important
@@ -98,16 +102,20 @@ class EntryController {
         entry.date = representation.date
     }
     
-    func sendEntryToServer(entry: EntryWithoutID, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    func sendEntryToServer(entry: EntryWithoutID,
+                           completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         let token = UserController.shared.bearer?.token
         let id = UserController.shared.bearer?.id
         
-        let url = URL(string: "/api/users/\(id ?? 0)/todos", relativeTo: NetworkController.baseURL)!
+        let url = URL(string: "/api/users/\(id ?? 0)/todos",
+            relativeTo: NetworkController.baseURL)!
         
         var request = URLRequest(url: url)
         request.httpMethod = RequestType.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token ?? "")",
+                         forHTTPHeaderField: "Authorization")
         
         do {
             request.httpBody = try JSONEncoder().encode(entry)
@@ -128,11 +136,24 @@ class EntryController {
             
             completion(.success(true))
         }.resume()
-        
     }
     
-    func createEntry(id: Int, title: String, bodyDescription: String, date: Date, completed: Bool = false, important: Bool, user_id: Int) {
-        let entry = Entry(id: Int32(id), title: title, bodyDescription: bodyDescription, date: date, completed: false, important: important, user_id: Int32(user_id))
+    func createEntry(id: Int,
+                     title: String,
+                     bodyDescription: String,
+                     date: Date,
+                     completed: Bool = false,
+                     important: Bool,
+                     user_id: Int) {
+        let entryWithoutID = EntryWithoutID(title: title,
+                                            bodyDescription: bodyDescription,
+                                            important: important,
+                                            completed: false,
+                                            user_id: Int32(user_id),
+                                            date: date)
+        
+        sendEntryToServer(entry: entryWithoutID)
+        
         do {
             try CoreDataStack.shared.save()
         } catch {

@@ -15,8 +15,13 @@ extension Entry {
         guard let title = title, let desc = bodyDescription, let date = date else {
             return nil
         }
-        
-        return EntryRepresentation(title: title, bodyDescription: desc, important: important, completed: completed, id: id, user_id: user_id, date: date)
+        return EntryRepresentation(title: title,
+                                   bodyDescription: desc,
+                                   important: important,
+                                   completed: completed,
+                                   id: id,
+                                   user_id: user_id,
+                                   date: date)
     }
     
     @discardableResult convenience init(id: Int32,
@@ -37,7 +42,8 @@ extension Entry {
         self.important = important
     }
     
-    @discardableResult convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    @discardableResult convenience init?(entryRepresentation: EntryRepresentation,
+                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(id: entryRepresentation.id,
                   title: entryRepresentation.title,
