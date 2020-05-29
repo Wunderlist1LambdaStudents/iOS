@@ -131,7 +131,12 @@ class EntryController {
         
     }
     
-    func createEntry(_ entry: Entry) {
-        print("creating entry here")
+    func createEntry(id: Int, title: String, bodyDescription: String, date: Date, completed: Bool = false, important: Bool, user_id: Int) {
+        let entry = Entry(id: Int32(id), title: title, bodyDescription: bodyDescription, date: date, completed: false, important: important, user_id: Int32(user_id))
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
     }
 }

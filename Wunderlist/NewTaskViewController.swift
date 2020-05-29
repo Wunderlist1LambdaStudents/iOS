@@ -17,6 +17,8 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var yearlyButton: UIButton!
     @IBOutlet weak var taskTitle: UILabel!
+    @IBOutlet weak var importantSwitch: UISwitch!
+    
 
     var entryController: EntryController?
     var entry: Entry?
@@ -28,21 +30,24 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
-        guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != ""  else { return }
+        guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != "" else { return }
+        
+        var important = false
+        
+        if importantSwitch.isOn {
+            important = true
+        }
         
         guard let userId = UserController.shared.bearer?.id else {
             NSLog("Unable to get user_id, bearer object null in UserController")
             return
         }
         
-        let entry = EntryWithoutID(title: titleName, bodyDescription: description, important: false, completed: false, user_id: userId, date: Date())
-        
-        EntryController.shared.sendEntryToServer(entry: entry) { result in
+        EntryController.shared.createEntry(id: 123, title: titleName, bodyDescription: description, date: datePicker.date, important: important) { result in
 
             guard let success = try? result.get() else {
                 return
             }
-            
             if success {
                 NSLog("Successfully sent entry to server")
                 DispatchQueue.main.async {

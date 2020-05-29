@@ -179,6 +179,17 @@
                                     <action selector="monthlyTapped:" destination="Bwj-pw-sZh" eventType="touchUpInside" id="nHf-58-r4C"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Important?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgK-a8-UcX">
+                                <rect key="frame" x="117" y="570" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZe-pZ-cWn">
+                                <rect key="frame" x="251" y="565" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ghP-y2-OLy"/>
@@ -186,6 +197,7 @@
                     <connections>
                         <outlet property="dailyButton" destination="5hb-aZ-GoG" id="Gjz-qG-HXs"/>
                         <outlet property="datePicker" destination="Teu-km-bZW" id="hiV-br-7UU"/>
+                        <outlet property="importantSwitch" destination="rZe-pZ-cWn" id="aMQ-NV-XCB"/>
                         <outlet property="monthlyButton" destination="Hnl-q9-csA" id="rGB-3w-4ri"/>
                         <outlet property="notesTextField" destination="iHQ-eX-mMe" id="kPv-A9-No0"/>
                         <outlet property="taskNameTextField" destination="kCb-jP-GWC" id="T9B-8J-7r7"/>
