@@ -50,7 +50,8 @@ class UserController {
     func loginUser(username: String,
                    password: String,
                    completion: @escaping NetworkController.CompletionHandler = { _ in }) {
-        let loginURL = URL(string: "/api/auth/login", relativeTo: NetworkController.baseURL)!
+        let loginURL = URL(string: "/api/auth/login",
+                           relativeTo: NetworkController.baseURL)!
         
         var request = URLRequest(url: loginURL)
         request.httpMethod = RequestType.post.rawValue
