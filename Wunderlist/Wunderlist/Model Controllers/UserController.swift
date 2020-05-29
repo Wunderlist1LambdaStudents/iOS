@@ -20,6 +20,7 @@ class UserController {
         
         var request = URLRequest(url: registerURL)
         request.httpMethod = RequestType.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         do {
             let userRepresentation = UserRepresentation(username: username, password: password)

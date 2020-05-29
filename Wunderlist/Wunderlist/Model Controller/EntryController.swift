@@ -21,6 +21,7 @@ class EntryController {
         
         let url = URL(string: "/api/todos", relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
+        requestURL.httpMethod = RequestType.get.rawValue
         requestURL.addValue("application/json", forHTTPHeaderField: "Content-Type")
         requestURL.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
         
@@ -61,6 +62,74 @@ class EntryController {
         let backgroundContext = CoreDataStack.shared.container.newBackgroundContext()
         
         var error: Error?
+        
+        backgroundContext.performAndWait {
+            do {
+                let existingEntries = try backgroundContext.fetch(fetchRequest)
+                
+                for entry in existingEntries {
+                    guard let representation = representationsByID[entry.id] else { continue }
+                    
+                    self.update(entry: entry, with: representation)
+                    entriesToCreate.removeValue(forKey: entry.id)
+                }
+            } catch let fetchError {
+                error = fetchError
+            }
+            
+            
+            for representation in entriesToCreate.values {
+                Entry(entryRepresentation: representation, context: backgroundContext)
+            }
+        }
+        
+        if let error = error { throw error }
+        
+        try CoreDataStack.shared.save(context: backgroundContext)
+    }
+    
+    private func update(entry: Entry, with representation: EntryRepresentation) {
+        entry.bodyDescription = representation.bodyDescription
+        entry.completed = representation.completed
+        entry.important = representation.important
+        entry.title = representation.title
+        entry.date = representation.date
+    }
+    
+    func sendEntryToServer(entry: Entry, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+        let token = UserController.shared.bearer?.token
+        let id = UserController.shared.bearer?.id
+        
+        let url = URL(string: "/api/todos:\(id ?? 0)", relativeTo: NetworkController.baseURL)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = RequestType.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+        
+        do {
+            guard let representation = entry.entryRepresentation else {
+                completion(.failure(.failedEncode))
+                return
+            }
+            
+            request.httpBody = try JSONEncoder().encode(representation)
+        } catch {
+            NSLog("Error encoding entry \(entry): \(error)")
+            completion(.failure(.failedEncode))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            if let error = error {
+                NSLog("Error sending entry to server \(entry): \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            
+            completion(.success(true))
+        }.resume()
+        
     }
     
     func createEntry(_ entry: Entry) {

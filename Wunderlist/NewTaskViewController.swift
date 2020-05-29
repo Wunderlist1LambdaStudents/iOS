@@ -29,9 +29,21 @@ class NewTaskViewController: UIViewController {
     @IBAction func saveTaskButton(_ sender: UIButton) {
         guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != ""  else { return }
         
-        let entry = Entry(id: 1, title: titleName, bodyDescription: description, date: Date(), completed: false, important: false, user_id: 1)
+        guard let userId = UserController.shared.bearer?.id else {
+            NSLog("Unable to get user_id, bearer object null in UserController")
+            return
+        }
         
-        entryController?.createEntry(entry)
+        let entry = Entry(id: Int32.random(in: 1...10000000), title: titleName, bodyDescription: description, date: Date(), completed: false, important: false, user_id: userId)
+        
+        entryController?.sendEntryToServer(entry: entry)
+        
+        do {
+            try CoreDataStack.shared.mainContext.save()
+            navigationController?.dismiss(animated: true, completion: nil)
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
     }
     
     @IBAction func dismissPage(_ sender: Any) {
