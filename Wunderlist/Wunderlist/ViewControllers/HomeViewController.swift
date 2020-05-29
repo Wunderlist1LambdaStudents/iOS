@@ -42,14 +42,25 @@ class HomeViewController: UIViewController {
 
 }
 
-//extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let warningCell = UITableViewCell()
+        warningCell.backgroundColor = UIColor.red
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "homeCell", for: indexPath) as? HomeTableViewCell else {return warningCell}
+        
+        cell.delegate = self
+        
+        return cell
+    }
+}
+
+extension HomeViewController: ChangeStatusDelegate {
+    func entryChange(_ item: Entry) {
+      //  UserController.shared.updateToComplete(item)
+    }
+}

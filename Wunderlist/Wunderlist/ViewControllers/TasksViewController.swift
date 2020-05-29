@@ -37,14 +37,25 @@ class TasksViewController: UIViewController {
 
 }
 
-//extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        <#code#>
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-//    
-//    
-//}
+extension TasksViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let warningCell = UITableViewCell()
+        warningCell.backgroundColor = UIColor.red
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as? TasksTableViewCell else {return warningCell}
+        
+        cell.delegate = self
+        
+        return cell
+    }
+}
+
+extension TasksViewController: AddOldEntryDelegate {
+    func entryAdd(_ item: Entry) {
+   //     UserController.shared.updateToComplete(item)
+    }
+}
