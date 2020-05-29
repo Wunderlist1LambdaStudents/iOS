@@ -27,6 +27,8 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func saveTaskButton(_ sender: UIButton) {
+        guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != ""  else { return }
+        
     }
     
     @IBAction func dismissPage(_ sender: Any) {
