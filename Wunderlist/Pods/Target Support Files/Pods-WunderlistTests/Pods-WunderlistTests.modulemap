@@ -1,0 +1,6 @@
+framework module Pods_WunderlistTests {
+  umbrella header "Pods-WunderlistTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

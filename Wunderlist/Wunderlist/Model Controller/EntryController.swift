@@ -19,7 +19,8 @@ class EntryController {
         fetchEntriesFromAPI()
     }
     
-    func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    func fetchEntriesFromAPI(completion: @escaping
+        NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
         let userId = UserController.shared.bearer?.id
@@ -34,7 +35,8 @@ class EntryController {
         requestURL.setValue("\(token ?? "")",
             forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: requestURL) { data, response, error in
+        URLSession.shared.dataTask(with: requestURL)
+        { data, response, error in
             if let error = error {
                 NSLog("Error fetching tasks: \(error)")
                 completion(.failure(.otherError))
@@ -48,7 +50,9 @@ class EntryController {
             }
             
             do {
-                let entryRepresentations = Array(try JSONDecoder().decode([EntryRepresentation].self, from: data))
+                let entryRepresentations = Array(try
+                    JSONDecoder().decode([EntryRepresentation].self,
+                                                                          from: data))
                 
                 self.entries = entryRepresentations
                 try self.updateEntries(with: entryRepresentations)
