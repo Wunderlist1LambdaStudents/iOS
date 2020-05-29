@@ -18,6 +18,8 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var yearlyButton: UIButton!
     @IBOutlet weak var taskTitle: UILabel!
 
+    var entryController: EntryController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,9 @@ class NewTaskViewController: UIViewController {
     @IBAction func saveTaskButton(_ sender: UIButton) {
         guard let titleName = taskNameTextField.text, titleName != "", let description = notesTextField.text, description != ""  else { return }
         
+        let entry = Entry(id: 1, title: titleName, bodyDescription: description, date: Date(), completed: false, important: false, user_id: 1)
+        
+        entryController?.createEntry(entry)
     }
     
     @IBAction func dismissPage(_ sender: Any) {

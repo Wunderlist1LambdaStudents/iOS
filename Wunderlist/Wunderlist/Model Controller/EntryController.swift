@@ -62,4 +62,8 @@ class EntryController {
         
         var error: Error?
     }
+    
+    func createEntry(_ entry: Entry) {
+        print("creating entry here")
+    }
 }
