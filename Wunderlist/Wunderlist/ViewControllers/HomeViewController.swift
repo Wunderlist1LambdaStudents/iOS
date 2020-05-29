@@ -44,9 +44,6 @@ class HomeViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-        
-   //     tableView.reloadData()
-        tableView.delegate = self
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
