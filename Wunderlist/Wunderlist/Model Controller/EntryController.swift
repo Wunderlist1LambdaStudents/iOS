@@ -190,12 +190,40 @@ class EntryController {
     func delete(entry: Entry) {
         
         CoreDataStack.shared.mainContext.delete(entry)
-      //  deleteEntryFromServer(entry: entry)
+        deleteEntryFromServer(entry: entry)
         do {
             try CoreDataStack.shared.save()
         } catch {
             NSLog("Error saving managed object context: \(error)")
         }
+    }
+    
+    func deleteEntryFromServer(entry: Entry, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+        
+        let token = UserController.shared.bearer?.token
+        
+        let id = entry.id
+        
+        let url = URL(string: "/api/users/todos/\(id)",
+            relativeTo: NetworkController.baseURL)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        request.setValue("\(token ?? "")",
+                         forHTTPHeaderField: "Authorization")
+        
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
+            if let error = error {
+                NSLog("Error deleting entry from server: \(error)")
+                completion(.failure(.failedEncode))
+                return
+            }
+            
+            completion(.success(true))
+        }.resume()
     }
     
 }

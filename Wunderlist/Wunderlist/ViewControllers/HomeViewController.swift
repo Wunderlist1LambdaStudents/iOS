@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
@@ -29,9 +29,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
-
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,7 +47,7 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-
+        
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         if segue.identifier == "editTask" {
             if let destVC = segue.destination as? UINavigationController,
                 let targetController = destVC.topViewController as? NewTaskViewController {
@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -78,12 +78,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return fetchedResultsController.sections?.count ?? 1
     }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil}
-//        
-//        return sectionInfo.name
-//    }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -98,6 +92,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = fetchedResultsController.object(at: indexPath)
+            let context = CoreDataStack.shared.mainContext
+            EntryController.shared.delete(entry: entry)
+            do {
+                try context.save()
+            } catch {
+                context.reset()
+                NSLog("Error saving managed object context (deleting record): \(error)")
+            }
+        }
+    }
+    
 }
 
 extension HomeViewController: ChangeStatusDelegate {
@@ -140,7 +149,7 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         case .move:
             guard let oldIndexPath = indexPath,
-            let newIndexPath = newIndexPath else { return }
+                let newIndexPath = newIndexPath else { return }
             tableView.deleteRows(at: [oldIndexPath], with: .automatic)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .delete:
