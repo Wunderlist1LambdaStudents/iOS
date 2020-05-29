@@ -13,6 +13,10 @@ class EntryController {
     
     static let shared = EntryController()
     
+    init() {
+        fetchEntriesFromAPI()
+    }
+    
     func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
@@ -42,8 +46,8 @@ class EntryController {
             }
             
             do {
-                let entryRepresentations = Array(try JSONDecoder().decode([String : EntryRepresentation].self,
-                                                                          from: data).values)
+                let entryRepresentations = Array(try JSONDecoder().decode([EntryRepresentation].self,
+                                                                          from: data))
                 
                 try self.updateEntries(with: entryRepresentations)
             } catch {
