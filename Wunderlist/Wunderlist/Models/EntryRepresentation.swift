@@ -11,8 +11,8 @@ import Foundation
 struct EntryRepresentation: Codable {
     var title: String
     var bodyDescription: String
-    var important: Bool
-    var completed: Bool
+    var important: Int32
+    var completed: Int32
     var id: Int32
     var user_id: Int32
     var date: Date
