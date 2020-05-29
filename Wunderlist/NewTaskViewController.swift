@@ -17,8 +17,6 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var monthlyButton: UIButton!
     @IBOutlet weak var yearlyButton: UIButton!
     @IBOutlet weak var taskTitle: UILabel!
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
