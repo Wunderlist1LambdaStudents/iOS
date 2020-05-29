@@ -35,16 +35,29 @@ class NewTaskViewController: UIViewController {
             return
         }
         
-        let entry = Entry(id: Int32.random(in: 1...10000000), title: titleName, bodyDescription: description, date: Date(), completed: false, important: false, user_id: userId)
+        let entry = EntryWithoutID(title: titleName, bodyDescription: description, important: false, completed: false, user_id: userId, date: Date())
         
-        entryController?.sendEntryToServer(entry: entry)
-        
-        do {
-            try CoreDataStack.shared.mainContext.save()
-            navigationController?.dismiss(animated: true, completion: nil)
-        } catch {
-            NSLog("Error saving managed object context: \(error)")
+        EntryController.shared.sendEntryToServer(entry: entry) { result in
+
+            guard let success = try? result.get() else {
+                return
+            }
+            
+            if success {
+                NSLog("Successfully sent entry to server")
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         }
+        
+        NSLog("attempting to send entry to server")
+//        do {
+//            try CoreDataStack.shared.mainContext.save()
+//            navigationController?.dismiss(animated: true, completion: nil)
+//        } catch {
+//            NSLog("Error saving managed object context: \(error)")
+//        }
     }
     
     @IBAction func dismissPage(_ sender: Any) {

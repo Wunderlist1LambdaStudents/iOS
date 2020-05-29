@@ -11,9 +11,11 @@ import CoreData
 
 class EntryController {
     
-    init() {
-        fetchEntriesFromAPI()
-    }
+    static let shared = EntryController()
+    
+//    init() {
+//        fetchEntriesFromAPI()
+//    }
     
     func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
@@ -96,11 +98,11 @@ class EntryController {
         entry.date = representation.date
     }
     
-    func sendEntryToServer(entry: Entry, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    func sendEntryToServer(entry: EntryWithoutID, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         let token = UserController.shared.bearer?.token
         let id = UserController.shared.bearer?.id
         
-        let url = URL(string: "/api/todos:\(id ?? 0)", relativeTo: NetworkController.baseURL)!
+        let url = URL(string: "/api/users/\(id ?? 0)/todos", relativeTo: NetworkController.baseURL)!
         
         var request = URLRequest(url: url)
         request.httpMethod = RequestType.post.rawValue
@@ -108,12 +110,9 @@ class EntryController {
         request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
         
         do {
-            guard let representation = entry.entryRepresentation else {
-                completion(.failure(.failedEncode))
-                return
-            }
+            request.httpBody = try JSONEncoder().encode(entry)
             
-            request.httpBody = try JSONEncoder().encode(representation)
+
         } catch {
             NSLog("Error encoding entry \(entry): \(error)")
             completion(.failure(.failedEncode))
