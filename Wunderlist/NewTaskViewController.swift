@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class NewTaskViewController: UIViewController {
     
     @IBOutlet weak var taskNameTextField: UITextField!
@@ -19,8 +21,6 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var importantSwitch: UISwitch!
     
-
-    var entryController: EntryController?
     var entry: Entry?
     
     override func viewDidLoad() {
