@@ -11,7 +11,6 @@ import CoreData
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var segmentBar: UISegmentedControl!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
