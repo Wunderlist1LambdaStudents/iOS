@@ -44,8 +44,8 @@ class EntryController {
             }
             
             do {
-                let entryRepresentations = Array(try JSONDecoder().decode([String : EntryRepresentation].self,
-                                                                          from: data).values)
+                let entryRepresentations = Array(try JSONDecoder().decode([EntryRepresentation].self,
+                                                                          from: data))
                 
                 try self.updateEntries(with: entryRepresentations)
                 self.entries = entryRepresentations
