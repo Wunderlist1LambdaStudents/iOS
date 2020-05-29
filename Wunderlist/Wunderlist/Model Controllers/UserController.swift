@@ -10,7 +10,9 @@ import Foundation
 
 class UserController {
     
-    var token: Bearer?
+    static let shared = UserController()
+    
+    var bearer: Bearer?
     
     let jsonDecoder = JSONDecoder()
     let jsonEncoder = JSONEncoder()
@@ -65,7 +67,7 @@ class UserController {
             }
             
             do {
-                self.token = try self.jsonDecoder.decode(Bearer.self, from: data)
+                self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
                 completion(.success(true))
             } catch {
                 NSLog("Error decoding bearer object: \(error)")
