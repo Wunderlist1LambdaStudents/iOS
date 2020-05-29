@@ -45,12 +45,11 @@ class NewTaskViewController: UIViewController {
             return
         }
         
-        EntryController.shared.createEntry(id: Int(userId),
-                                           title: titleName,
+        EntryController.shared.createEntry(title: titleName,
                                            bodyDescription: description,
                                            date: datePicker.date,
                                            important: important,
-                                           user_id: Int(userId))
+                                           user_id: Int32(userId))
         
         do {
              try CoreDataStack.shared.mainContext.save()
