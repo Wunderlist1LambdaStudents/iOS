@@ -19,7 +19,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var buttonFace: UIButton!
     
-    
     var entry: Entry? {
         didSet {
             updateViews()

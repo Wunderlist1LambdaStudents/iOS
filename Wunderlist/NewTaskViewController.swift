@@ -30,6 +30,7 @@ class NewTaskViewController: UIViewController {
     }
     
     @IBAction func dismissPage(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dailyTapped(_ sender: UIButton) {
@@ -40,7 +41,5 @@ class NewTaskViewController: UIViewController {
     
     @IBAction func yearlyTapped(_ sender: UIButton) {
     }
-    
-    
     
 }
