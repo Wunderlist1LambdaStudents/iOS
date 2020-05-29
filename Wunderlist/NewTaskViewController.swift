@@ -43,26 +43,14 @@ class NewTaskViewController: UIViewController {
             return
         }
         
-        EntryController.shared.createEntry(id: 123, title: titleName, bodyDescription: description, date: datePicker.date, important: important) { result in
-
-            guard let success = try? result.get() else {
-                return
-            }
-            if success {
-                NSLog("Successfully sent entry to server")
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
-        }
+        EntryController.shared.createEntry(id: Int(userId), title: titleName, bodyDescription: description, date: datePicker.date, important: important, user_id: Int(userId))
         
-        NSLog("attempting to send entry to server")
-//        do {
-//            try CoreDataStack.shared.mainContext.save()
-//            navigationController?.dismiss(animated: true, completion: nil)
-//        } catch {
-//            NSLog("Error saving managed object context: \(error)")
-//        }
+        do {
+             try CoreDataStack.shared.mainContext.save()
+             navigationController?.dismiss(animated: true, completion: nil)
+         } catch {
+             NSLog("Error saving managed object context: \(error)")
+         }
     }
     
     @IBAction func dismissPage(_ sender: Any) {
