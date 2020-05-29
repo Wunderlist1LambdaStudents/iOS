@@ -79,6 +79,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                                                        for: indexPath) as? HomeTableViewCell else {return warningCell}
         
         cell.delegate = self
+        cell.entry = fetchedResultsController.object(at: indexPath)
         
         return cell
     }
