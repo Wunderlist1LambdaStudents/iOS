@@ -46,6 +46,7 @@ class UserController {
         
         var request = URLRequest(url: loginURL)
         request.httpMethod = RequestType.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
 //        let bodyData = "username=\(username)&password=\(password)"
 //        request.httpBody = bodyData.data(using: .utf8)

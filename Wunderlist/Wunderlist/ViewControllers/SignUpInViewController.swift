@@ -24,7 +24,27 @@ class SignUpInViewController: UIViewController {
     }
     
     @IBAction func signInTapped(_ sender: Any) {
-        performSegue(withIdentifier: segueName, sender: nil)
+        let username = nameField.text ?? ""
+        let password = passField.text ?? ""
+        
+        if !username.isEmpty && !password.isEmpty {
+            
+            UserController.shared.loginUser(username: username, password: password) { result in
+                
+                do {
+                    let success = try result.get()
+                    if success {
+                        NSLog("Login successful")
+                    }
+                } catch {
+                    NSLog("Error logging in")
+                    return
+                }
+
+            }
+            performSegue(withIdentifier: segueName, sender: nil)
+        }
+        
     }
     
     @IBAction func changeSignType(_ sender: Any) {
