@@ -18,14 +18,16 @@ class EntryController {
     func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
+        let userId = UserController.shared.bearer?.id
         
-        let url = URL(string: "/api/todos",
+        
+        let url = URL(string: "/api/users/\(userId ?? 0)/todos",
                       relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
         requestURL.httpMethod = RequestType.get.rawValue
         requestURL.addValue("application/json",
                             forHTTPHeaderField: "Content-Type")
-        requestURL.setValue("Bearer \(token ?? "")",
+        requestURL.setValue("\(token ?? "")",
             forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: requestURL) { data, response, error in
@@ -116,7 +118,7 @@ class EntryController {
         request.httpMethod = RequestType.post.rawValue
         request.addValue("application/json",
                          forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token ?? "")",
+        request.setValue("\(token ?? "")",
                          forHTTPHeaderField: "Authorization")
         
         do {
