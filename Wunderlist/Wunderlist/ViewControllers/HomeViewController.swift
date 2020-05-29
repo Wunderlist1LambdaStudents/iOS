@@ -34,16 +34,20 @@ class HomeViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+    override func viewDidAppear(_ animated: Bool) {
         EntryController.shared.fetchEntriesFromAPI() {_ in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {

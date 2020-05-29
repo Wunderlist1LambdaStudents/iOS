@@ -36,7 +36,7 @@ class HomeTableViewCell: UITableViewCell {
         guard let entry = entry else {return}
         
         nameLabel.text = entry.title
-        descriptionLabel.text = entry.description
+        descriptionLabel.text = entry.bodyDescription
         
         if entry.completed == false {
             buttonFace.setTitle("Done",for: .normal)
