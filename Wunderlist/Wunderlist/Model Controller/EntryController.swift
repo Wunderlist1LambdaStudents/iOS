@@ -142,16 +142,16 @@ class EntryController {
         }.resume()
     }
     
-    func createEntry(id: Int,
-                     title: String,
+    func createEntry(title: String,
                      bodyDescription: String,
                      date: Date,
                      completed: Bool = false,
                      important: Bool,
-                     user_id: Int) {
-        let _ = Entry(id: Int32(id), title: title, bodyDescription: bodyDescription, date: date, completed: completed, important: important, user_id: Int32(user_id))
+                     user_id: Int32) {
         
-   //     sendEntryToServer(entry: entryWithoutID)
+        let entryWithoutID = EntryWithoutID(title: title, bodyDescription: bodyDescription, important: important, completed: completed, user_id: user_id, date: date)
+        
+        sendEntryToServer(entry: entryWithoutID)
         
         do {
             try CoreDataStack.shared.save()
