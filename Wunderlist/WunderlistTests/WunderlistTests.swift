@@ -10,18 +10,88 @@ import XCTest
 @testable import Wunderlist
 
 class WunderlistTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testLogin() throws {
+        let loginPass = expectation(description: "loginPass")
+        
+        let userController = UserController()
+        
+        let username = "aaaa"
+        let password = "aaaa"
+        
+        userController.loginUser(username: username,
+        password: password) { result in
+            
+            loginPass.fulfill()
+            
+        }
+        wait(for: [loginPass], timeout: 15)
+        
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testTokenNotNil() throws {
+        let loginPass3 = expectation(description: "loginPass")
+        
+        let userController = UserController()
+        
+        let username = "aaaa"
+        let password = "aaaa"
+        
+        userController.loginUser(username: username,
+        password: password) { result in
+            
+            loginPass3.fulfill()
+            
+        }
+        wait(for: [loginPass3], timeout: 15)
+        
+        XCTAssertNotNil(userController.bearer)
+        
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testLoginToken() throws {
+        let loginPass2 = expectation(description: "loginPass")
+        
+        let userController = UserController()
+        
+        let username = "aaaa"
+        let password = "aaaa"
+        
+        userController.loginUser(username: username,
+        password: password) { result in
+            
+            print("loginPass")
+            loginPass2.fulfill()
+            
+        }
+        wait(for: [loginPass2], timeout: 15)
+        
+        XCTAssertNotEqual(userController.bearer?.token, "")
+        
+    }
+    
+    func testFetchingData() throws {
+        
+        let didFinish = expectation(description: "didFinish")
+        
+        var pickedUpEntries: [EntryRepresentation] = []
+        
+        let entryController = EntryController()
+        
+        entryController.fetchEntriesFromAPI {_ in
+            
+            pickedUpEntries = entryController.entries
+            didFinish.fulfill()
+            
+        }
+        
+        wait(for: [didFinish], timeout: 15)
+        XCTAssertLessThan([EntryRepresentation]().count, pickedUpEntries.count)
+        
+    }
+    
+    func testSavingObject() throws {
+      //  let entry = 
     }
 
     func testPerformanceExample() throws {

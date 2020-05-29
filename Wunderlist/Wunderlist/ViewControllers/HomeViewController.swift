@@ -10,11 +10,9 @@ import UIKit
 import CoreData
 
 class HomeViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
-    let entryController = EntryController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
@@ -31,8 +29,24 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        EntryController.shared.fetchEntriesFromAPI() {_ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         
     }
     
@@ -44,30 +58,25 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "createEntry" {
+        if segue.identifier == "editTask" {
             if let destVC = segue.destination as? UINavigationController,
                 let targetController = destVC.topViewController as? NewTaskViewController {
-                targetController.entryController = entryController
-            }
-        }
-
-        if segue.identifier == "modifyEntry" {
-            if let destVC = segue.destination as? UINavigationController,
-                let targetController = destVC.topViewController as? NewTaskViewController {
-                targetController.entryController = entryController
                 if let indexPath = tableView.indexPathForSelectedRow {
                     targetController.entry = fetchedResultsController.object(at: indexPath)
                 }
             }
         }
     }
-
+    
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 3
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView,
@@ -79,14 +88,30 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
                                                        for: indexPath) as? HomeTableViewCell else {return warningCell}
         
         cell.delegate = self
+        cell.entry = fetchedResultsController.object(at: indexPath)
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let entry = fetchedResultsController.object(at: indexPath)
+            let context = CoreDataStack.shared.mainContext
+            EntryController.shared.delete(entry: entry)
+            do {
+                try context.save()
+            } catch {
+                context.reset()
+                NSLog("Error saving managed object context (deleting record): \(error)")
+            }
+        }
+    }
+    
 }
 
 extension HomeViewController: ChangeStatusDelegate {
     func entryChange(_ item: Entry) {
-      //  UserController.shared.updateToComplete(item)
+        EntryController.shared.updateComplete(entry: item)
     }
 }
 
@@ -124,7 +149,7 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
             tableView.reloadRows(at: [indexPath], with: .automatic)
         case .move:
             guard let oldIndexPath = indexPath,
-            let newIndexPath = newIndexPath else { return }
+                let newIndexPath = newIndexPath else { return }
             tableView.deleteRows(at: [oldIndexPath], with: .automatic)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         case .delete:

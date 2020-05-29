@@ -16,21 +16,12 @@ class WunderlistUITests: XCTestCase {
         return app.otherElements["Wunderlist.searchBar"]
     }
     
+    var addButton: XCUIElement {
+        return app.buttons["Wunderlist.addTask"]
+    }
+    
     var loginButton: XCUIElement {
         return app/*@START_MENU_TOKEN@*/.buttons["Sign In"].staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/
-    }
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testKeyboardAbleToType() throws {
@@ -49,21 +40,33 @@ class WunderlistUITests: XCTestCase {
                 
     }
     
-    func testSegmentedControlExistence() throws {
+    func testNoLoginAllowed() throws {
+        
+        app = XCUIApplication()
+        app.launch()
+    
+        app.staticTexts["Sign In"].tap()
+        
+        let alert = app.alerts["Error"].scrollViews.otherElements.buttons["Dismiss"]
+        
+        XCTAssertTrue(alert.exists)
+        
+        alert.tap()
+    }
+    
+    func testCreatingAUser() throws {
         
         app = XCUIApplication()
         app.launch()
         
-        loginButton.tap()
+        let number = Int.random(in: 500 ... 900)
         
-        let segmentDay = app/*@START_MENU_TOKEN@*/.buttons["Day"]/*[[".segmentedControls.buttons[\"Day\"]",".buttons[\"Day\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        let segmentMonth = app/*@START_MENU_TOKEN@*/.buttons["Month"]/*[[".segmentedControls.buttons[\"Month\"]",".buttons[\"Month\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        app/*@START_MENU_TOKEN@*/.staticTexts["Don't have an account?"]/*[[".buttons[\"Don't have an account?\"].staticTexts[\"Don't have an account?\"]",".staticTexts[\"Don't have an account?\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
-        XCTAssertTrue(segmentDay.exists)
-        XCTAssertTrue(segmentMonth.exists)
-        
-        segmentMonth.tap()
-        segmentDay.tap()
+        app.textFields["Name"].tap()
+        app.textFields["Name"].typeText("\(number)")
+        app.textFields["Password"].tap()
+        app.textFields["Password"].typeText("\(number)")
         
     }
     
@@ -71,7 +74,13 @@ class WunderlistUITests: XCTestCase {
         app = XCUIApplication()
         app.launch()
         
+        app.textFields["Name"].tap()
+        app.textFields["Name"].typeText("aaaa")
+        app.textFields["Password"].tap()
+        app.textFields["Password"].typeText("aaaa")
         loginButton.tap()
+        
+        sleep(3)
         
         XCTAssertTrue(searchBar.exists)
         
@@ -79,14 +88,21 @@ class WunderlistUITests: XCTestCase {
         searchBar.typeText("Testing")
                 
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
+    
+    func testNewController() throws {
+        app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        app.textFields["Name"].tap()
+        app.textFields["Name"].typeText("aaaa")
+        app.textFields["Password"].tap()
+        app.textFields["Password"].typeText("aaaa")
+        loginButton.tap()
+        
+        sleep(3)
+        
+        XCTAssertTrue(addButton.exists)
+        addButton.tap()
     }
 
     func testLaunchPerformance() throws {

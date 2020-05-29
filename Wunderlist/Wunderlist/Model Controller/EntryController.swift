@@ -13,20 +13,30 @@ class EntryController {
     
     static let shared = EntryController()
     
-    func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+    var entries: [EntryRepresentation] = []
+    
+    init() {
+        fetchEntriesFromAPI()
+    }
+    
+    func fetchEntriesFromAPI(completion: @escaping
+        NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
+        let userId = UserController.shared.bearer?.id
         
-        let url = URL(string: "/api/todos",
+        
+        let url = URL(string: "/api/users/\(userId ?? 0)/todos",
                       relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
         requestURL.httpMethod = RequestType.get.rawValue
         requestURL.addValue("application/json",
                             forHTTPHeaderField: "Content-Type")
-        requestURL.setValue("Bearer \(token ?? "")",
+        requestURL.setValue("\(token ?? "")",
             forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: requestURL) { data, response, error in
+        URLSession.shared.dataTask(with: requestURL)
+        { data, response, error in
             if let error = error {
                 NSLog("Error fetching tasks: \(error)")
                 completion(.failure(.otherError))
@@ -40,10 +50,13 @@ class EntryController {
             }
             
             do {
-                let entryRepresentations = Array(try JSONDecoder().decode([String : EntryRepresentation].self,
-                                                                          from: data).values)
+                let entryRepresentations = Array(try
+                    JSONDecoder().decode([EntryRepresentation].self,
+                                                                          from: data))
                 
+                self.entries = entryRepresentations
                 try self.updateEntries(with: entryRepresentations)
+                
             } catch {
                 NSLog("Error decoding entries from API: \(error)")
                 completion(.failure(.failedDecode))
@@ -96,8 +109,8 @@ class EntryController {
     private func update(entry: Entry,
                         with representation: EntryRepresentation) {
         entry.bodyDescription = representation.bodyDescription
-        entry.completed = representation.completed
-        entry.important = representation.important
+        entry.completed = (representation.completed == 0 ? false : true)
+        entry.important = (representation.important == 0 ? false : true)
         entry.title = representation.title
         entry.date = representation.date
     }
@@ -114,7 +127,7 @@ class EntryController {
         request.httpMethod = RequestType.post.rawValue
         request.addValue("application/json",
                          forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token ?? "")",
+        request.setValue("\(token ?? "")",
                          forHTTPHeaderField: "Authorization")
         
         do {
@@ -138,19 +151,14 @@ class EntryController {
         }.resume()
     }
     
-    func createEntry(id: Int,
-                     title: String,
+    func createEntry(title: String,
                      bodyDescription: String,
                      date: Date,
                      completed: Bool = false,
                      important: Bool,
-                     user_id: Int) {
-        let entryWithoutID = EntryWithoutID(title: title,
-                                            bodyDescription: bodyDescription,
-                                            important: important,
-                                            completed: false,
-                                            user_id: Int32(user_id),
-                                            date: date)
+                     user_id: Int32) {
+        
+        let entryWithoutID = EntryWithoutID(title: title, bodyDescription: bodyDescription, important: important, completed: completed, user_id: user_id, date: date)
         
         sendEntryToServer(entry: entryWithoutID)
         
@@ -160,4 +168,67 @@ class EntryController {
             NSLog("Error saving managed object context: \(error)")
         }
     }
+    
+    func updater(entry: Entry, title: String, description: String, date: Date, important: Bool) {
+        entry.title = title
+        entry.bodyDescription = description
+        entry.date = Date()
+        entry.important = important
+        
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    func updateComplete(entry: Entry) {
+        entry.completed = true
+        
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    func delete(entry: Entry) {
+        
+        CoreDataStack.shared.mainContext.delete(entry)
+        deleteEntryFromServer(entry: entry)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    func deleteEntryFromServer(entry: Entry, completion: @escaping NetworkController.CompletionHandler = { _ in }) {
+        
+        let token = UserController.shared.bearer?.token
+        
+        let id = entry.id
+        
+        let url = URL(string: "/api/users/todos/\(id)",
+            relativeTo: NetworkController.baseURL)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        request.addValue("application/json",
+                         forHTTPHeaderField: "Content-Type")
+        request.setValue("\(token ?? "")",
+                         forHTTPHeaderField: "Authorization")
+        
+        
+        URLSession.shared.dataTask(with: request) { _, _, error in
+            if let error = error {
+                NSLog("Error deleting entry from server: \(error)")
+                completion(.failure(.failedEncode))
+                return
+            }
+            
+            completion(.success(true))
+        }.resume()
+    }
+    
 }

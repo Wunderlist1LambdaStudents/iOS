@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class NewTaskViewController: UIViewController {
     
     @IBOutlet weak var taskNameTextField: UITextField!
@@ -19,8 +21,6 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var importantSwitch: UISwitch!
     
-
-    var entryController: EntryController?
     var entry: Entry?
     
     override func viewDidLoad() {
@@ -45,16 +45,15 @@ class NewTaskViewController: UIViewController {
             return
         }
         
-        EntryController.shared.createEntry(id: Int(userId),
-                                           title: titleName,
+        EntryController.shared.createEntry(title: titleName,
                                            bodyDescription: description,
                                            date: datePicker.date,
                                            important: important,
-                                           user_id: Int(userId))
+                                           user_id: Int32(userId))
         
         do {
              try CoreDataStack.shared.mainContext.save()
-             navigationController?.dismiss(animated: true,
+            self.dismiss(animated: true,
                                            completion: nil)
          } catch {
              NSLog("Error saving managed object context: \(error)")
