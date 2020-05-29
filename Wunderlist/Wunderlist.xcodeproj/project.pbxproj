@@ -15,7 +15,6 @@
 		BED78ECC24800EA3009B6DF9 /* Entry+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC624800EA3009B6DF9 /* Entry+Convenience.swift */; };
 		BED78ECD24800EA3009B6DF9 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC724800EA3009B6DF9 /* CoreDataStack.swift */; };
 		BED78ECE24800EA3009B6DF9 /* EntryRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC824800EA3009B6DF9 /* EntryRepresentation.swift */; };
-		BED78ECF24800EA3009B6DF9 /* User+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78EC924800EA3009B6DF9 /* User+Convenience.swift */; };
 		BED78ED624808D2E009B6DF9 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED78ED524808D2E009B6DF9 /* EntryController.swift */; };
 		C40CAF9824801E210081938E /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40CAF9724801E210081938E /* HomeTableViewCell.swift */; };
 		C40CAF9A24801E360081938E /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40CAF9924801E360081938E /* TasksTableViewCell.swift */; };
@@ -58,7 +57,6 @@
 		BED78EC624800EA3009B6DF9 /* Entry+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Entry+Convenience.swift"; path = "Models/Entry+Convenience.swift"; sourceTree = "<group>"; };
 		BED78EC724800EA3009B6DF9 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStack.swift; path = Models/CoreDataStack.swift; sourceTree = "<group>"; };
 		BED78EC824800EA3009B6DF9 /* EntryRepresentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EntryRepresentation.swift; path = Models/EntryRepresentation.swift; sourceTree = "<group>"; };
-		BED78EC924800EA3009B6DF9 /* User+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+Convenience.swift"; path = "Models/User+Convenience.swift"; sourceTree = "<group>"; };
 		BED78ED524808D2E009B6DF9 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 		C40CAF9724801E210081938E /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		C40CAF9924801E360081938E /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				BED78EC724800EA3009B6DF9 /* CoreDataStack.swift */,
 				BED78EC624800EA3009B6DF9 /* Entry+Convenience.swift */,
 				BED78EC824800EA3009B6DF9 /* EntryRepresentation.swift */,
-				BED78EC924800EA3009B6DF9 /* User+Convenience.swift */,
 				BED78EC524800EA3009B6DF9 /* UserRepresentation.swift */,
 				BED78EC324800EA3009B6DF9 /* Wunderlist.xcdatamodeld */,
 				C40CAF9B248040B20081938E /* Bearer.swift */,
@@ -359,7 +356,6 @@
 				C40F5427247EB68600AE9802 /* TasksViewController.swift in Sources */,
 				BED78ECA24800EA3009B6DF9 /* Wunderlist.xcdatamodeld in Sources */,
 				C40CAF9824801E210081938E /* HomeTableViewCell.swift in Sources */,
-				BED78ECF24800EA3009B6DF9 /* User+Convenience.swift in Sources */,
 				C459FABC247DB071005AB618 /* SceneDelegate.swift in Sources */,
 				C459FAEE247DCD90005AB618 /* SignUpInViewController.swift in Sources */,
 				C40CAF9C248040B20081938E /* Bearer.swift in Sources */,
