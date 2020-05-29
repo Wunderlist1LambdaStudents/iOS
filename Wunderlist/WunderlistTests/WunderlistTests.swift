@@ -90,8 +90,8 @@ class WunderlistTests: XCTestCase {
         
     }
     
-    func testCallsToServer() throws {
-        
+    func testSavingObject() throws {
+      //  let entry = 
     }
 
     func testPerformanceExample() throws {
