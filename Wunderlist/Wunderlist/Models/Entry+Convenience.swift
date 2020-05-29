@@ -15,10 +15,12 @@ extension Entry {
         guard let title = title, let desc = bodyDescription, let date = date else {
             return nil
         }
+        
+    
         return EntryRepresentation(title: title,
                                    bodyDescription: desc,
-                                   important: important,
-                                   completed: completed,
+                                   important: (important ? 1 : 0),
+                                   completed: (completed ? 1 : 0),
                                    id: id,
                                    user_id: user_id,
                                    date: date)
@@ -49,8 +51,8 @@ extension Entry {
                   title: entryRepresentation.title,
                   bodyDescription: entryRepresentation.bodyDescription,
                   date: entryRepresentation.date,
-                  completed: entryRepresentation.completed,
-                  important: entryRepresentation.important,
+                  completed: (entryRepresentation.completed == 0 ? false : true),
+                  important: (entryRepresentation.important == 0 ? false : true),
                   user_id: entryRepresentation.user_id,
                   context: context)
     }

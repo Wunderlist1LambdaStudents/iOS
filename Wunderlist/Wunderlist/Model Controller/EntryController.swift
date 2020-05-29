@@ -101,8 +101,8 @@ class EntryController {
     private func update(entry: Entry,
                         with representation: EntryRepresentation) {
         entry.bodyDescription = representation.bodyDescription
-        entry.completed = representation.completed
-        entry.important = representation.important
+        entry.completed = (representation.completed == 0 ? false : true)
+        entry.important = (representation.important == 0 ? false : true)
         entry.title = representation.title
         entry.date = representation.date
     }

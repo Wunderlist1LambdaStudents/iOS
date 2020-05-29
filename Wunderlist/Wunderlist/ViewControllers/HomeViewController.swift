@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.delegate = self
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
