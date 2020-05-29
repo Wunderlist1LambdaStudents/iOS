@@ -34,6 +34,7 @@ class HomeViewController: UIViewController {
 
         searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
         
+        tableView.delegate = self
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
@@ -65,9 +66,14 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
+    }
+    
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView,
