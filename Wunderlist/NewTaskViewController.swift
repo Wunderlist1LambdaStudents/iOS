@@ -53,7 +53,7 @@ class NewTaskViewController: UIViewController {
         
         do {
              try CoreDataStack.shared.mainContext.save()
-             navigationController?.dismiss(animated: true,
+            self.dismiss(animated: true,
                                            completion: nil)
          } catch {
              NSLog("Error saving managed object context: \(error)")
