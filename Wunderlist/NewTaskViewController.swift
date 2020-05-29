@@ -19,6 +19,7 @@ class NewTaskViewController: UIViewController {
     @IBOutlet weak var taskTitle: UILabel!
 
     var entryController: EntryController?
+    var entry: Entry?
     
     override func viewDidLoad() {
         super.viewDidLoad()

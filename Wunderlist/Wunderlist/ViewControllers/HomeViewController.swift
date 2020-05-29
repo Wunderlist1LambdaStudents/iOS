@@ -39,6 +39,26 @@ class HomeViewController: UIViewController {
     
     @IBAction func addTaskTapped(_ sender: Any) {
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "createEntry" {
+            if let destVC = segue.destination as? UINavigationController,
+                let targetController = destVC.topViewController as? NewTaskViewController {
+                targetController.entryController = entryController
+            }
+        }
+
+        if segue.identifier == "modifyEntry" {
+            if let destVC = segue.destination as? UINavigationController,
+                let targetController = destVC.topViewController as? NewTaskViewController {
+                targetController.entryController = entryController
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    targetController.entry = fetchedResultsController.object(at: indexPath)
+                }
+            }
+        }
+    }
 
 }
 
