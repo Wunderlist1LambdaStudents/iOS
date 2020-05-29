@@ -12,7 +12,6 @@ import CoreData
 class TasksViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     
     let entryController = EntryController()
