@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    let entryController = EntryController()
-    
     lazy var fetchedResultsController: NSFetchedResultsController<Entry> = {
         let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
@@ -33,7 +31,19 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
+        EntryController.shared.fetchEntriesFromAPI() {_ in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+   //     tableView.reloadData()
     }
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
