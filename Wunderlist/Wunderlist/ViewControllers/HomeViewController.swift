@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         searchBar.accessibilityIdentifier = "Wunderlist.searchBar"
+        tableView.delegate = self
+        tableView.dataSource = self
         
     }
     
@@ -57,10 +59,19 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView,
-                   numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 3
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchedResultsController.sections?.count ?? 1
+    }
+    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        guard let sectionInfo = fetchedResultsController.sections?[section] else { return nil}
+//        
+//        return sectionInfo.name
+//    }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
