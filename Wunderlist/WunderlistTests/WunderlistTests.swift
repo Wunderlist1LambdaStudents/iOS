@@ -18,10 +18,41 @@ class WunderlistTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func testLogin() throws {
+        let loginPass = expectation(description: "loginPass")
+        
+        let userController = UserController()
+        
+    }
+    
+    func testFetchingData() throws {
+        
+        let didFinish = expectation(description: "didFinish")
+        
+        var pickedUpEntries: [EntryRepresentation] = []
+        
+        let entryController = EntryController()
+        
+        entryController.fetchEntriesFromAPI {_ in
+            
+            didFinish.fulfill()
+            pickedUpEntries = entryController.entries
+            
+        }
+        
+        wait(for: [didFinish], timeout: 15)
+        XCTAssertLessThan([EntryRepresentation]().count, pickedUpEntries.count)
+        
+    }
+    
+    func testSavingData() {
+        
+    }
+    
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testCallsToServer() throws {
+        
     }
 
     func testPerformanceExample() throws {

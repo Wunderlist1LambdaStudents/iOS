@@ -43,18 +43,10 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "createEntry" {
-            if let destVC = segue.destination as? UINavigationController,
-                let targetController = destVC.topViewController as? NewTaskViewController {
-                targetController.entryController = entryController
-            }
-        }
 
-        if segue.identifier == "modifyEntry" {
+        if segue.identifier == "editTask" {
             if let destVC = segue.destination as? UINavigationController,
                 let targetController = destVC.topViewController as? NewTaskViewController {
-                targetController.entryController = entryController
                 if let indexPath = tableView.indexPathForSelectedRow {
                     targetController.entry = fetchedResultsController.object(at: indexPath)
                 }
@@ -86,7 +78,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension HomeViewController: ChangeStatusDelegate {
     func entryChange(_ item: Entry) {
-      //  UserController.shared.updateToComplete(item)
+        EntryController.shared.updateComplete(entry: item)
     }
 }
 

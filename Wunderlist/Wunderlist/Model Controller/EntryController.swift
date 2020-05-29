@@ -13,6 +13,8 @@ class EntryController {
     
     static let shared = EntryController()
     
+    var entries: [EntryRepresentation] = []
+    
     func fetchEntriesFromAPI(completion: @escaping NetworkController.CompletionHandler = { _ in }) {
         
         let token = UserController.shared.bearer?.token
@@ -44,6 +46,7 @@ class EntryController {
                                                                           from: data).values)
                 
                 try self.updateEntries(with: entryRepresentations)
+                self.entries = entryRepresentations
             } catch {
                 NSLog("Error decoding entries from API: \(error)")
                 completion(.failure(.failedDecode))
@@ -145,14 +148,9 @@ class EntryController {
                      completed: Bool = false,
                      important: Bool,
                      user_id: Int) {
-        let entryWithoutID = EntryWithoutID(title: title,
-                                            bodyDescription: bodyDescription,
-                                            important: important,
-                                            completed: false,
-                                            user_id: Int32(user_id),
-                                            date: date)
+        let _ = Entry(id: Int32(id), title: title, bodyDescription: bodyDescription, date: date, completed: completed, important: important, user_id: Int32(user_id))
         
-        sendEntryToServer(entry: entryWithoutID)
+   //     sendEntryToServer(entry: entryWithoutID)
         
         do {
             try CoreDataStack.shared.save()
@@ -160,4 +158,39 @@ class EntryController {
             NSLog("Error saving managed object context: \(error)")
         }
     }
+    
+    func updater(entry: Entry, title: String, description: String, date: Date, important: Bool) {
+        entry.title = title
+        entry.bodyDescription = description
+        entry.date = Date()
+        entry.important = important
+        
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    func updateComplete(entry: Entry) {
+        entry.completed = true
+        
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
+    func delete(entry: Entry) {
+        
+        CoreDataStack.shared.mainContext.delete(entry)
+      //  deleteEntryFromServer(entry: entry)
+        do {
+            try CoreDataStack.shared.save()
+        } catch {
+            NSLog("Error saving managed object context: \(error)")
+        }
+    }
+    
 }
