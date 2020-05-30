@@ -86,12 +86,12 @@ class WunderlistTests: XCTestCase {
         }
         
         wait(for: [didFinish], timeout: 15)
-        XCTAssertLessThan([EntryRepresentation]().count, pickedUpEntries.count)
+        XCTAssertLessThan([EntryRepresentation]().count,
+                          pickedUpEntries.count)
         
     }
     
     func testSavingObject() throws {
-      //  let entry = 
     }
 
     func testPerformanceExample() throws {

@@ -12,7 +12,7 @@ target 'Wunderlist' do
     # Pods for testing
   end
 
-pod 'SwiftLint'
+pod 'SwiftLint', '~> 0.39'
 
   target 'WunderlistUITests' do
     inherit! :search_paths

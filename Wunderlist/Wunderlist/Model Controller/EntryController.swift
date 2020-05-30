@@ -25,7 +25,6 @@ class EntryController {
         let token = UserController.shared.bearer?.token
         let userId = UserController.shared.bearer?.id
         
-        
         let url = URL(string: "/api/users/\(userId ?? 0)/todos",
                       relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
