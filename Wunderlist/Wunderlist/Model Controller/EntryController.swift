@@ -25,7 +25,6 @@ class EntryController {
         let token = UserController.shared.bearer?.token
         let userId = UserController.shared.bearer?.id
         
-        
         let url = URL(string: "/api/users/\(userId ?? 0)/todos",
                       relativeTo: NetworkController.baseURL)!
         var requestURL = URLRequest(url: url)
@@ -156,9 +155,9 @@ class EntryController {
                      date: Date,
                      completed: Bool = false,
                      important: Bool,
-                     user_id: Int32) {
+                     userId: Int32) {
         
-        let entryWithoutID = EntryWithoutID(title: title, bodyDescription: bodyDescription, important: important, completed: completed, user_id: user_id, date: date)
+        let entryWithoutID = EntryWithoutID(title: title, bodyDescription: bodyDescription, important: important, completed: completed, userId: userId, date: date)
         
         sendEntryToServer(entry: entryWithoutID)
         

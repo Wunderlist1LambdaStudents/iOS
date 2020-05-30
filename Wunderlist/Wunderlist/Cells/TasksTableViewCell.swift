@@ -42,9 +42,9 @@ class TasksTableViewCell: UITableViewCell {
         descriptionLabel.text = entry.description
         
         if entry.completed == false {
-            buttonFace.setTitle("Done",for: .normal)
-        } else {
             buttonFace.setTitle("Not Done",for: .normal)
+        } else {
+            buttonFace.setTitle("Done",for: .normal)
         }
         
     }
