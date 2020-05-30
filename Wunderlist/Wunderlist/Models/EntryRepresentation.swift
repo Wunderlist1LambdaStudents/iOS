@@ -16,7 +16,7 @@ struct EntryRepresentation: Codable {
     var id: Int32
     var userId: Int32
     var date: Date
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case bodyDescription = "description"
@@ -35,7 +35,7 @@ struct EntryWithoutID: Codable {
     var completed: Bool
     var userId: Int32
     var date: Date
-    
+
     enum CodingKeys: String, CodingKey {
         case title
         case bodyDescription = "description"

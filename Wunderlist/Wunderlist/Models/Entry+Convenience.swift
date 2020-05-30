@@ -43,9 +43,9 @@ extension Entry {
         self.completed = completed
         self.important = important
     }
-    
+
     @discardableResult convenience init?(entryRepresentation: EntryRepresentation,
-                                        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+        context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         
         self.init(id: entryRepresentation.id,
                   title: entryRepresentation.title,
