@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -438,7 +438,6 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
