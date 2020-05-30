@@ -14,7 +14,7 @@ struct EntryRepresentation: Codable {
     var important: Int32
     var completed: Int32
     var id: Int32
-    var user_id: Int32
+    var userId: Int32
     var date: Date
     
     enum CodingKeys: String, CodingKey {
@@ -23,7 +23,7 @@ struct EntryRepresentation: Codable {
         case important
         case completed
         case id
-        case user_id
+        case userId = "user_id"
         case date = "date_time"
     }
 }
@@ -33,7 +33,7 @@ struct EntryWithoutID: Codable {
     var bodyDescription: String
     var important: Bool
     var completed: Bool
-    var user_id: Int32
+    var userId: Int32
     var date: Date
     
     enum CodingKeys: String, CodingKey {
@@ -41,7 +41,7 @@ struct EntryWithoutID: Codable {
         case bodyDescription = "description"
         case important
         case completed
-        case user_id
+        case userId = "user_id"
         case date = "date_time"
     }
 }

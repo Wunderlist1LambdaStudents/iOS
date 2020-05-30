@@ -41,7 +41,7 @@ class NewTaskViewController: UIViewController {
         }
         
         guard let userId = UserController.shared.bearer?.id else {
-            NSLog("Unable to get user_id, bearer object null in UserController")
+            NSLog("Unable to get userId, bearer object null in UserController")
             return
         }
         
@@ -49,7 +49,7 @@ class NewTaskViewController: UIViewController {
                                            bodyDescription: description,
                                            date: datePicker.date,
                                            important: important,
-                                           user_id: Int32(userId))
+                                           userId: Int32(userId))
         
         do {
              try CoreDataStack.shared.mainContext.save()

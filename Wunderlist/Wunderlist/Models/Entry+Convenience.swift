@@ -22,7 +22,7 @@ extension Entry {
                                    important: (important ? 1 : 0),
                                    completed: (completed ? 1 : 0),
                                    id: id,
-                                   user_id: user_id,
+                                   userId: userId,
                                    date: date)
     }
     
@@ -32,14 +32,14 @@ extension Entry {
                                         date: Date,
                                         completed: Bool = false,
                                         important: Bool = false,
-                                        user_id: Int32,
+                                        userId: Int32,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.title = title
         self.bodyDescription = bodyDescription
         self.date = date
         self.id = id
-        self.user_id = user_id
+        self.userId = userId
         self.completed = completed
         self.important = important
     }
@@ -53,7 +53,7 @@ extension Entry {
                   date: entryRepresentation.date,
                   completed: (entryRepresentation.completed == 0 ? false : true),
                   important: (entryRepresentation.important == 0 ? false : true),
-                  user_id: entryRepresentation.user_id,
+                  userId: entryRepresentation.userId,
                   context: context)
     }
 }
